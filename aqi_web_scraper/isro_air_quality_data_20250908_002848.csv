@@ -1,0 +1,385 @@
+timestamp,data_source,satellite,city,state,region,latitude,longitude,pm25_ug_m3,pm10_ug_m3,aqi,aerosol_optical_depth,no2_column_density,so2_column_density,pixel_resolution,cloud_coverage_percent,data_quality,processing_level,solar_zenith_angle,viewing_zenith_angle
+2025-09-08 00:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,50.7,96.1,125.0,0.2,2.00e+15,1.00e+15,500m,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,51.7,97.7,127.0,0.22,2.20e+15,1.10e+15,500m,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,52.7,99.3,129.0,0.24,2.40e+15,1.20e+15,500m,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,53.7,100.9,131.0,0.26,2.60e+15,1.30e+15,500m,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,54.7,102.5,133.0,0.28,2.80e+15,1.40e+15,500m,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,55.7,104.1,135.0,0.3,3.00e+15,1.50e+15,500m,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,56.7,105.7,137.0,0.32,3.20e+15,1.60e+15,500m,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,57.7,107.3,140.0,0.34,3.40e+15,1.70e+15,500m,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,58.7,108.9,142.0,0.36,3.60e+15,1.80e+15,500m,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,59.7,110.5,144.0,0.38,3.80e+15,1.90e+15,500m,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,60.7,112.1,146.0,0.4,4.00e+15,2.00e+15,500m,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,61.7,113.7,148.0,0.42,4.20e+15,2.10e+15,500m,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Mumbai,Maharashtra,West,19.076,72.8777,49.8,94.7,123.0,0.2,2.00e+15,1.00e+15,500m,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Mumbai,Maharashtra,West,19.076,72.8777,50.8,96.3,125.0,0.22,2.20e+15,1.10e+15,500m,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Mumbai,Maharashtra,West,19.076,72.8777,51.8,97.9,127.0,0.24,2.40e+15,1.20e+15,500m,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Mumbai,Maharashtra,West,19.076,72.8777,52.8,99.5,129.0,0.26,2.60e+15,1.30e+15,500m,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Mumbai,Maharashtra,West,19.076,72.8777,53.8,101.1,131.0,0.28,2.80e+15,1.40e+15,500m,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Mumbai,Maharashtra,West,19.076,72.8777,54.8,102.7,133.0,0.3,3.00e+15,1.50e+15,500m,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Mumbai,Maharashtra,West,19.076,72.8777,55.8,104.3,136.0,0.32,3.20e+15,1.60e+15,500m,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Mumbai,Maharashtra,West,19.076,72.8777,56.8,105.9,138.0,0.34,3.40e+15,1.70e+15,500m,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Mumbai,Maharashtra,West,19.076,72.8777,57.8,107.5,140.0,0.36,3.60e+15,1.80e+15,500m,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Mumbai,Maharashtra,West,19.076,72.8777,58.8,109.1,142.0,0.38,3.80e+15,1.90e+15,500m,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Mumbai,Maharashtra,West,19.076,72.8777,59.8,110.7,144.0,0.4,4.00e+15,2.00e+15,500m,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Mumbai,Maharashtra,West,19.076,72.8777,60.8,112.3,146.0,0.42,4.20e+15,2.10e+15,500m,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Delhi,Delhi,North,28.7041,77.1025,49.5,94.2,122.0,0.2,2.00e+15,1.00e+15,500m,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Delhi,Delhi,North,28.7041,77.1025,50.5,95.8,125.0,0.22,2.20e+15,1.10e+15,500m,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Delhi,Delhi,North,28.7041,77.1025,51.5,97.4,127.0,0.24,2.40e+15,1.20e+15,500m,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Delhi,Delhi,North,28.7041,77.1025,52.5,99.0,129.0,0.26,2.60e+15,1.30e+15,500m,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Delhi,Delhi,North,28.7041,77.1025,53.5,100.6,131.0,0.28,2.80e+15,1.40e+15,500m,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Delhi,Delhi,North,28.7041,77.1025,54.5,102.2,133.0,0.3,3.00e+15,1.50e+15,500m,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Delhi,Delhi,North,28.7041,77.1025,55.5,103.8,135.0,0.32,3.20e+15,1.60e+15,500m,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Delhi,Delhi,North,28.7041,77.1025,56.5,105.4,137.0,0.34,3.40e+15,1.70e+15,500m,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Delhi,Delhi,North,28.7041,77.1025,57.5,107.0,139.0,0.36,3.60e+15,1.80e+15,500m,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Delhi,Delhi,North,28.7041,77.1025,58.5,108.6,141.0,0.38,3.80e+15,1.90e+15,500m,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Delhi,Delhi,North,28.7041,77.1025,59.5,110.2,143.0,0.4,4.00e+15,2.00e+15,500m,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Delhi,Delhi,North,28.7041,77.1025,60.5,111.8,145.0,0.42,4.20e+15,2.10e+15,500m,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,50.1,95.2,124.0,0.2,2.00e+15,1.00e+15,500m,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,51.1,96.8,126.0,0.22,2.20e+15,1.10e+15,500m,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,52.1,98.4,128.0,0.24,2.40e+15,1.20e+15,500m,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,53.1,100.0,130.0,0.26,2.60e+15,1.30e+15,500m,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,54.1,101.6,132.0,0.28,2.80e+15,1.40e+15,500m,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,55.1,103.2,134.0,0.3,3.00e+15,1.50e+15,500m,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,56.1,104.8,136.0,0.32,3.20e+15,1.60e+15,500m,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,57.1,106.4,138.0,0.34,3.40e+15,1.70e+15,500m,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,58.1,108.0,140.0,0.36,3.60e+15,1.80e+15,500m,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,59.1,109.6,142.0,0.38,3.80e+15,1.90e+15,500m,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,60.1,111.2,145.0,0.4,4.00e+15,2.00e+15,500m,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,61.1,112.8,147.0,0.42,4.20e+15,2.10e+15,500m,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Hyderabad,Telangana,South,17.385,78.4867,50.7,96.1,125.0,0.2,2.00e+15,1.00e+15,500m,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Hyderabad,Telangana,South,17.385,78.4867,51.7,97.7,127.0,0.22,2.20e+15,1.10e+15,500m,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Hyderabad,Telangana,South,17.385,78.4867,52.7,99.3,129.0,0.24,2.40e+15,1.20e+15,500m,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Hyderabad,Telangana,South,17.385,78.4867,53.7,100.9,131.0,0.26,2.60e+15,1.30e+15,500m,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Hyderabad,Telangana,South,17.385,78.4867,54.7,102.5,133.0,0.28,2.80e+15,1.40e+15,500m,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Hyderabad,Telangana,South,17.385,78.4867,55.7,104.1,135.0,0.3,3.00e+15,1.50e+15,500m,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Hyderabad,Telangana,South,17.385,78.4867,56.7,105.7,137.0,0.32,3.20e+15,1.60e+15,500m,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Hyderabad,Telangana,South,17.385,78.4867,57.7,107.3,140.0,0.34,3.40e+15,1.70e+15,500m,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Hyderabad,Telangana,South,17.385,78.4867,58.7,108.9,142.0,0.36,3.60e+15,1.80e+15,500m,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Hyderabad,Telangana,South,17.385,78.4867,59.7,110.5,144.0,0.38,3.80e+15,1.90e+15,500m,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Hyderabad,Telangana,South,17.385,78.4867,60.7,112.1,146.0,0.4,4.00e+15,2.00e+15,500m,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Hyderabad,Telangana,South,17.385,78.4867,61.7,113.7,148.0,0.42,4.20e+15,2.10e+15,500m,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,50.7,96.1,125.0,0.2,2.00e+15,1.00e+15,500m,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,51.7,97.7,127.0,0.22,2.20e+15,1.10e+15,500m,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,52.7,99.3,129.0,0.24,2.40e+15,1.20e+15,500m,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,53.7,100.9,131.0,0.26,2.60e+15,1.30e+15,500m,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,54.7,102.5,133.0,0.28,2.80e+15,1.40e+15,500m,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,55.7,104.1,135.0,0.3,3.00e+15,1.50e+15,500m,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,56.7,105.7,137.0,0.32,3.20e+15,1.60e+15,500m,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,57.7,107.3,140.0,0.34,3.40e+15,1.70e+15,500m,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,58.7,108.9,142.0,0.36,3.60e+15,1.80e+15,500m,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,59.7,110.5,144.0,0.38,3.80e+15,1.90e+15,500m,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,60.7,112.1,146.0,0.4,4.00e+15,2.00e+15,500m,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,61.7,113.7,148.0,0.42,4.20e+15,2.10e+15,500m,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Kolkata,West Bengal,East,22.5726,88.3639,50.1,95.2,124.0,0.2,2.00e+15,1.00e+15,500m,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Kolkata,West Bengal,East,22.5726,88.3639,51.1,96.8,126.0,0.22,2.20e+15,1.10e+15,500m,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Kolkata,West Bengal,East,22.5726,88.3639,52.1,98.4,128.0,0.24,2.40e+15,1.20e+15,500m,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Kolkata,West Bengal,East,22.5726,88.3639,53.1,100.0,130.0,0.26,2.60e+15,1.30e+15,500m,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Kolkata,West Bengal,East,22.5726,88.3639,54.1,101.6,132.0,0.28,2.80e+15,1.40e+15,500m,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Kolkata,West Bengal,East,22.5726,88.3639,55.1,103.2,134.0,0.3,3.00e+15,1.50e+15,500m,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Kolkata,West Bengal,East,22.5726,88.3639,56.1,104.8,136.0,0.32,3.20e+15,1.60e+15,500m,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Kolkata,West Bengal,East,22.5726,88.3639,57.1,106.4,138.0,0.34,3.40e+15,1.70e+15,500m,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Kolkata,West Bengal,East,22.5726,88.3639,58.1,108.0,140.0,0.36,3.60e+15,1.80e+15,500m,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Kolkata,West Bengal,East,22.5726,88.3639,59.1,109.6,142.0,0.38,3.80e+15,1.90e+15,500m,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Kolkata,West Bengal,East,22.5726,88.3639,60.1,111.2,145.0,0.4,4.00e+15,2.00e+15,500m,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Kolkata,West Bengal,East,22.5726,88.3639,61.1,112.8,147.0,0.42,4.20e+15,2.10e+15,500m,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Pune,Maharashtra,West,18.5204,73.8567,49.2,93.7,122.0,0.2,2.00e+15,1.00e+15,500m,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Pune,Maharashtra,West,18.5204,73.8567,50.2,95.3,124.0,0.22,2.20e+15,1.10e+15,500m,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Pune,Maharashtra,West,18.5204,73.8567,51.2,96.9,126.0,0.24,2.40e+15,1.20e+15,500m,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Pune,Maharashtra,West,18.5204,73.8567,52.2,98.5,128.0,0.26,2.60e+15,1.30e+15,500m,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Pune,Maharashtra,West,18.5204,73.8567,53.2,100.1,130.0,0.28,2.80e+15,1.40e+15,500m,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Pune,Maharashtra,West,18.5204,73.8567,54.2,101.7,132.0,0.3,3.00e+15,1.50e+15,500m,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Pune,Maharashtra,West,18.5204,73.8567,55.2,103.3,134.0,0.32,3.20e+15,1.60e+15,500m,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Pune,Maharashtra,West,18.5204,73.8567,56.2,104.9,136.0,0.34,3.40e+15,1.70e+15,500m,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Pune,Maharashtra,West,18.5204,73.8567,57.2,106.5,138.0,0.36,3.60e+15,1.80e+15,500m,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Pune,Maharashtra,West,18.5204,73.8567,58.2,108.1,141.0,0.38,3.80e+15,1.90e+15,500m,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Pune,Maharashtra,West,18.5204,73.8567,59.2,109.7,143.0,0.4,4.00e+15,2.00e+15,500m,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Air_Quality,RESOURCESAT-2,Pune,Maharashtra,West,18.5204,73.8567,60.2,111.3,145.0,0.42,4.20e+15,2.10e+15,500m,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_VAYU,INSAT-3D,Bengaluru,Karnataka,South,12.9716,77.5946,50.7,96.1,125.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_VAYU,INSAT-3D,Bengaluru,Karnataka,South,12.9716,77.5946,51.7,97.7,127.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_VAYU,INSAT-3D,Bengaluru,Karnataka,South,12.9716,77.5946,52.7,99.3,129.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_VAYU,INSAT-3D,Bengaluru,Karnataka,South,12.9716,77.5946,53.7,100.9,131.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_VAYU,INSAT-3D,Bengaluru,Karnataka,South,12.9716,77.5946,54.7,102.5,133.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_VAYU,INSAT-3D,Bengaluru,Karnataka,South,12.9716,77.5946,55.7,104.1,135.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_VAYU,INSAT-3D,Bengaluru,Karnataka,South,12.9716,77.5946,56.7,105.7,137.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_VAYU,INSAT-3D,Bengaluru,Karnataka,South,12.9716,77.5946,57.7,107.3,140.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_VAYU,INSAT-3D,Bengaluru,Karnataka,South,12.9716,77.5946,58.7,108.9,142.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_VAYU,INSAT-3D,Bengaluru,Karnataka,South,12.9716,77.5946,59.7,110.5,144.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_VAYU,INSAT-3D,Bengaluru,Karnataka,South,12.9716,77.5946,60.7,112.1,146.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_VAYU,INSAT-3D,Bengaluru,Karnataka,South,12.9716,77.5946,61.7,113.7,148.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_VAYU,INSAT-3D,Mumbai,Maharashtra,West,19.076,72.8777,49.8,94.7,123.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_VAYU,INSAT-3D,Mumbai,Maharashtra,West,19.076,72.8777,50.8,96.3,125.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_VAYU,INSAT-3D,Mumbai,Maharashtra,West,19.076,72.8777,51.8,97.9,127.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_VAYU,INSAT-3D,Mumbai,Maharashtra,West,19.076,72.8777,52.8,99.5,129.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_VAYU,INSAT-3D,Mumbai,Maharashtra,West,19.076,72.8777,53.8,101.1,131.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_VAYU,INSAT-3D,Mumbai,Maharashtra,West,19.076,72.8777,54.8,102.7,133.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_VAYU,INSAT-3D,Mumbai,Maharashtra,West,19.076,72.8777,55.8,104.3,136.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_VAYU,INSAT-3D,Mumbai,Maharashtra,West,19.076,72.8777,56.8,105.9,138.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_VAYU,INSAT-3D,Mumbai,Maharashtra,West,19.076,72.8777,57.8,107.5,140.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_VAYU,INSAT-3D,Mumbai,Maharashtra,West,19.076,72.8777,58.8,109.1,142.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_VAYU,INSAT-3D,Mumbai,Maharashtra,West,19.076,72.8777,59.8,110.7,144.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_VAYU,INSAT-3D,Mumbai,Maharashtra,West,19.076,72.8777,60.8,112.3,146.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_VAYU,INSAT-3D,Delhi,Delhi,North,28.7041,77.1025,49.5,94.2,122.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_VAYU,INSAT-3D,Delhi,Delhi,North,28.7041,77.1025,50.5,95.8,125.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_VAYU,INSAT-3D,Delhi,Delhi,North,28.7041,77.1025,51.5,97.4,127.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_VAYU,INSAT-3D,Delhi,Delhi,North,28.7041,77.1025,52.5,99.0,129.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_VAYU,INSAT-3D,Delhi,Delhi,North,28.7041,77.1025,53.5,100.6,131.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_VAYU,INSAT-3D,Delhi,Delhi,North,28.7041,77.1025,54.5,102.2,133.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_VAYU,INSAT-3D,Delhi,Delhi,North,28.7041,77.1025,55.5,103.8,135.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_VAYU,INSAT-3D,Delhi,Delhi,North,28.7041,77.1025,56.5,105.4,137.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_VAYU,INSAT-3D,Delhi,Delhi,North,28.7041,77.1025,57.5,107.0,139.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_VAYU,INSAT-3D,Delhi,Delhi,North,28.7041,77.1025,58.5,108.6,141.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_VAYU,INSAT-3D,Delhi,Delhi,North,28.7041,77.1025,59.5,110.2,143.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_VAYU,INSAT-3D,Delhi,Delhi,North,28.7041,77.1025,60.5,111.8,145.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_VAYU,INSAT-3D,Chennai,Tamil Nadu,South,13.0827,80.2707,50.1,95.2,124.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_VAYU,INSAT-3D,Chennai,Tamil Nadu,South,13.0827,80.2707,51.1,96.8,126.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_VAYU,INSAT-3D,Chennai,Tamil Nadu,South,13.0827,80.2707,52.1,98.4,128.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_VAYU,INSAT-3D,Chennai,Tamil Nadu,South,13.0827,80.2707,53.1,100.0,130.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_VAYU,INSAT-3D,Chennai,Tamil Nadu,South,13.0827,80.2707,54.1,101.6,132.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_VAYU,INSAT-3D,Chennai,Tamil Nadu,South,13.0827,80.2707,55.1,103.2,134.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_VAYU,INSAT-3D,Chennai,Tamil Nadu,South,13.0827,80.2707,56.1,104.8,136.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_VAYU,INSAT-3D,Chennai,Tamil Nadu,South,13.0827,80.2707,57.1,106.4,138.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_VAYU,INSAT-3D,Chennai,Tamil Nadu,South,13.0827,80.2707,58.1,108.0,140.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_VAYU,INSAT-3D,Chennai,Tamil Nadu,South,13.0827,80.2707,59.1,109.6,142.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_VAYU,INSAT-3D,Chennai,Tamil Nadu,South,13.0827,80.2707,60.1,111.2,145.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_VAYU,INSAT-3D,Chennai,Tamil Nadu,South,13.0827,80.2707,61.1,112.8,147.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_VAYU,INSAT-3D,Hyderabad,Telangana,South,17.385,78.4867,50.7,96.1,125.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_VAYU,INSAT-3D,Hyderabad,Telangana,South,17.385,78.4867,51.7,97.7,127.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_VAYU,INSAT-3D,Hyderabad,Telangana,South,17.385,78.4867,52.7,99.3,129.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_VAYU,INSAT-3D,Hyderabad,Telangana,South,17.385,78.4867,53.7,100.9,131.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_VAYU,INSAT-3D,Hyderabad,Telangana,South,17.385,78.4867,54.7,102.5,133.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_VAYU,INSAT-3D,Hyderabad,Telangana,South,17.385,78.4867,55.7,104.1,135.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_VAYU,INSAT-3D,Hyderabad,Telangana,South,17.385,78.4867,56.7,105.7,137.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_VAYU,INSAT-3D,Hyderabad,Telangana,South,17.385,78.4867,57.7,107.3,140.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_VAYU,INSAT-3D,Hyderabad,Telangana,South,17.385,78.4867,58.7,108.9,142.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_VAYU,INSAT-3D,Hyderabad,Telangana,South,17.385,78.4867,59.7,110.5,144.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_VAYU,INSAT-3D,Hyderabad,Telangana,South,17.385,78.4867,60.7,112.1,146.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_VAYU,INSAT-3D,Hyderabad,Telangana,South,17.385,78.4867,61.7,113.7,148.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_VAYU,INSAT-3D,Ahmedabad,Gujarat,West,23.0225,72.5714,50.7,96.1,125.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_VAYU,INSAT-3D,Ahmedabad,Gujarat,West,23.0225,72.5714,51.7,97.7,127.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_VAYU,INSAT-3D,Ahmedabad,Gujarat,West,23.0225,72.5714,52.7,99.3,129.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_VAYU,INSAT-3D,Ahmedabad,Gujarat,West,23.0225,72.5714,53.7,100.9,131.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_VAYU,INSAT-3D,Ahmedabad,Gujarat,West,23.0225,72.5714,54.7,102.5,133.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_VAYU,INSAT-3D,Ahmedabad,Gujarat,West,23.0225,72.5714,55.7,104.1,135.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_VAYU,INSAT-3D,Ahmedabad,Gujarat,West,23.0225,72.5714,56.7,105.7,137.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_VAYU,INSAT-3D,Ahmedabad,Gujarat,West,23.0225,72.5714,57.7,107.3,140.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_VAYU,INSAT-3D,Ahmedabad,Gujarat,West,23.0225,72.5714,58.7,108.9,142.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_VAYU,INSAT-3D,Ahmedabad,Gujarat,West,23.0225,72.5714,59.7,110.5,144.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_VAYU,INSAT-3D,Ahmedabad,Gujarat,West,23.0225,72.5714,60.7,112.1,146.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_VAYU,INSAT-3D,Ahmedabad,Gujarat,West,23.0225,72.5714,61.7,113.7,148.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_VAYU,INSAT-3D,Kolkata,West Bengal,East,22.5726,88.3639,50.1,95.2,124.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_VAYU,INSAT-3D,Kolkata,West Bengal,East,22.5726,88.3639,51.1,96.8,126.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_VAYU,INSAT-3D,Kolkata,West Bengal,East,22.5726,88.3639,52.1,98.4,128.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_VAYU,INSAT-3D,Kolkata,West Bengal,East,22.5726,88.3639,53.1,100.0,130.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_VAYU,INSAT-3D,Kolkata,West Bengal,East,22.5726,88.3639,54.1,101.6,132.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_VAYU,INSAT-3D,Kolkata,West Bengal,East,22.5726,88.3639,55.1,103.2,134.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_VAYU,INSAT-3D,Kolkata,West Bengal,East,22.5726,88.3639,56.1,104.8,136.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_VAYU,INSAT-3D,Kolkata,West Bengal,East,22.5726,88.3639,57.1,106.4,138.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_VAYU,INSAT-3D,Kolkata,West Bengal,East,22.5726,88.3639,58.1,108.0,140.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_VAYU,INSAT-3D,Kolkata,West Bengal,East,22.5726,88.3639,59.1,109.6,142.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_VAYU,INSAT-3D,Kolkata,West Bengal,East,22.5726,88.3639,60.1,111.2,145.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_VAYU,INSAT-3D,Kolkata,West Bengal,East,22.5726,88.3639,61.1,112.8,147.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_VAYU,INSAT-3D,Pune,Maharashtra,West,18.5204,73.8567,49.2,93.7,122.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_VAYU,INSAT-3D,Pune,Maharashtra,West,18.5204,73.8567,50.2,95.3,124.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_VAYU,INSAT-3D,Pune,Maharashtra,West,18.5204,73.8567,51.2,96.9,126.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_VAYU,INSAT-3D,Pune,Maharashtra,West,18.5204,73.8567,52.2,98.5,128.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_VAYU,INSAT-3D,Pune,Maharashtra,West,18.5204,73.8567,53.2,100.1,130.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_VAYU,INSAT-3D,Pune,Maharashtra,West,18.5204,73.8567,54.2,101.7,132.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_VAYU,INSAT-3D,Pune,Maharashtra,West,18.5204,73.8567,55.2,103.3,134.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_VAYU,INSAT-3D,Pune,Maharashtra,West,18.5204,73.8567,56.2,104.9,136.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_VAYU,INSAT-3D,Pune,Maharashtra,West,18.5204,73.8567,57.2,106.5,138.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_VAYU,INSAT-3D,Pune,Maharashtra,West,18.5204,73.8567,58.2,108.1,141.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_VAYU,INSAT-3D,Pune,Maharashtra,West,18.5204,73.8567,59.2,109.7,143.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_VAYU,INSAT-3D,Pune,Maharashtra,West,18.5204,73.8567,60.2,111.3,145.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Atmospheric,OCEANSAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,50.7,96.1,125.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Atmospheric,OCEANSAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,51.7,97.7,127.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Atmospheric,OCEANSAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,52.7,99.3,129.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Atmospheric,OCEANSAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,53.7,100.9,131.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Atmospheric,OCEANSAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,54.7,102.5,133.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Atmospheric,OCEANSAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,55.7,104.1,135.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Atmospheric,OCEANSAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,56.7,105.7,137.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Atmospheric,OCEANSAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,57.7,107.3,140.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Atmospheric,OCEANSAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,58.7,108.9,142.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Atmospheric,OCEANSAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,59.7,110.5,144.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Atmospheric,OCEANSAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,60.7,112.1,146.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Atmospheric,OCEANSAT-2,Bengaluru,Karnataka,South,12.9716,77.5946,61.7,113.7,148.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Atmospheric,OCEANSAT-2,Mumbai,Maharashtra,West,19.076,72.8777,49.8,94.7,123.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Atmospheric,OCEANSAT-2,Mumbai,Maharashtra,West,19.076,72.8777,50.8,96.3,125.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Atmospheric,OCEANSAT-2,Mumbai,Maharashtra,West,19.076,72.8777,51.8,97.9,127.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Atmospheric,OCEANSAT-2,Mumbai,Maharashtra,West,19.076,72.8777,52.8,99.5,129.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Atmospheric,OCEANSAT-2,Mumbai,Maharashtra,West,19.076,72.8777,53.8,101.1,131.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Atmospheric,OCEANSAT-2,Mumbai,Maharashtra,West,19.076,72.8777,54.8,102.7,133.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Atmospheric,OCEANSAT-2,Mumbai,Maharashtra,West,19.076,72.8777,55.8,104.3,136.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Atmospheric,OCEANSAT-2,Mumbai,Maharashtra,West,19.076,72.8777,56.8,105.9,138.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Atmospheric,OCEANSAT-2,Mumbai,Maharashtra,West,19.076,72.8777,57.8,107.5,140.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Atmospheric,OCEANSAT-2,Mumbai,Maharashtra,West,19.076,72.8777,58.8,109.1,142.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Atmospheric,OCEANSAT-2,Mumbai,Maharashtra,West,19.076,72.8777,59.8,110.7,144.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Atmospheric,OCEANSAT-2,Mumbai,Maharashtra,West,19.076,72.8777,60.8,112.3,146.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Atmospheric,OCEANSAT-2,Delhi,Delhi,North,28.7041,77.1025,49.5,94.2,122.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Atmospheric,OCEANSAT-2,Delhi,Delhi,North,28.7041,77.1025,50.5,95.8,125.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Atmospheric,OCEANSAT-2,Delhi,Delhi,North,28.7041,77.1025,51.5,97.4,127.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Atmospheric,OCEANSAT-2,Delhi,Delhi,North,28.7041,77.1025,52.5,99.0,129.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Atmospheric,OCEANSAT-2,Delhi,Delhi,North,28.7041,77.1025,53.5,100.6,131.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Atmospheric,OCEANSAT-2,Delhi,Delhi,North,28.7041,77.1025,54.5,102.2,133.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Atmospheric,OCEANSAT-2,Delhi,Delhi,North,28.7041,77.1025,55.5,103.8,135.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Atmospheric,OCEANSAT-2,Delhi,Delhi,North,28.7041,77.1025,56.5,105.4,137.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Atmospheric,OCEANSAT-2,Delhi,Delhi,North,28.7041,77.1025,57.5,107.0,139.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Atmospheric,OCEANSAT-2,Delhi,Delhi,North,28.7041,77.1025,58.5,108.6,141.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Atmospheric,OCEANSAT-2,Delhi,Delhi,North,28.7041,77.1025,59.5,110.2,143.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Atmospheric,OCEANSAT-2,Delhi,Delhi,North,28.7041,77.1025,60.5,111.8,145.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Atmospheric,OCEANSAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,50.1,95.2,124.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Atmospheric,OCEANSAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,51.1,96.8,126.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Atmospheric,OCEANSAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,52.1,98.4,128.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Atmospheric,OCEANSAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,53.1,100.0,130.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Atmospheric,OCEANSAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,54.1,101.6,132.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Atmospheric,OCEANSAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,55.1,103.2,134.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Atmospheric,OCEANSAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,56.1,104.8,136.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Atmospheric,OCEANSAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,57.1,106.4,138.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Atmospheric,OCEANSAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,58.1,108.0,140.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Atmospheric,OCEANSAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,59.1,109.6,142.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Atmospheric,OCEANSAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,60.1,111.2,145.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Atmospheric,OCEANSAT-2,Chennai,Tamil Nadu,South,13.0827,80.2707,61.1,112.8,147.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Atmospheric,OCEANSAT-2,Hyderabad,Telangana,South,17.385,78.4867,50.7,96.1,125.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Atmospheric,OCEANSAT-2,Hyderabad,Telangana,South,17.385,78.4867,51.7,97.7,127.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Atmospheric,OCEANSAT-2,Hyderabad,Telangana,South,17.385,78.4867,52.7,99.3,129.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Atmospheric,OCEANSAT-2,Hyderabad,Telangana,South,17.385,78.4867,53.7,100.9,131.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Atmospheric,OCEANSAT-2,Hyderabad,Telangana,South,17.385,78.4867,54.7,102.5,133.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Atmospheric,OCEANSAT-2,Hyderabad,Telangana,South,17.385,78.4867,55.7,104.1,135.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Atmospheric,OCEANSAT-2,Hyderabad,Telangana,South,17.385,78.4867,56.7,105.7,137.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Atmospheric,OCEANSAT-2,Hyderabad,Telangana,South,17.385,78.4867,57.7,107.3,140.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Atmospheric,OCEANSAT-2,Hyderabad,Telangana,South,17.385,78.4867,58.7,108.9,142.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Atmospheric,OCEANSAT-2,Hyderabad,Telangana,South,17.385,78.4867,59.7,110.5,144.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Atmospheric,OCEANSAT-2,Hyderabad,Telangana,South,17.385,78.4867,60.7,112.1,146.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Atmospheric,OCEANSAT-2,Hyderabad,Telangana,South,17.385,78.4867,61.7,113.7,148.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Atmospheric,OCEANSAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,50.7,96.1,125.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Atmospheric,OCEANSAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,51.7,97.7,127.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Atmospheric,OCEANSAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,52.7,99.3,129.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Atmospheric,OCEANSAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,53.7,100.9,131.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Atmospheric,OCEANSAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,54.7,102.5,133.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Atmospheric,OCEANSAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,55.7,104.1,135.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Atmospheric,OCEANSAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,56.7,105.7,137.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Atmospheric,OCEANSAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,57.7,107.3,140.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Atmospheric,OCEANSAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,58.7,108.9,142.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Atmospheric,OCEANSAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,59.7,110.5,144.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Atmospheric,OCEANSAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,60.7,112.1,146.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Atmospheric,OCEANSAT-2,Ahmedabad,Gujarat,West,23.0225,72.5714,61.7,113.7,148.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Atmospheric,OCEANSAT-2,Kolkata,West Bengal,East,22.5726,88.3639,50.1,95.2,124.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Atmospheric,OCEANSAT-2,Kolkata,West Bengal,East,22.5726,88.3639,51.1,96.8,126.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Atmospheric,OCEANSAT-2,Kolkata,West Bengal,East,22.5726,88.3639,52.1,98.4,128.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Atmospheric,OCEANSAT-2,Kolkata,West Bengal,East,22.5726,88.3639,53.1,100.0,130.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Atmospheric,OCEANSAT-2,Kolkata,West Bengal,East,22.5726,88.3639,54.1,101.6,132.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Atmospheric,OCEANSAT-2,Kolkata,West Bengal,East,22.5726,88.3639,55.1,103.2,134.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Atmospheric,OCEANSAT-2,Kolkata,West Bengal,East,22.5726,88.3639,56.1,104.8,136.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Atmospheric,OCEANSAT-2,Kolkata,West Bengal,East,22.5726,88.3639,57.1,106.4,138.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Atmospheric,OCEANSAT-2,Kolkata,West Bengal,East,22.5726,88.3639,58.1,108.0,140.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Atmospheric,OCEANSAT-2,Kolkata,West Bengal,East,22.5726,88.3639,59.1,109.6,142.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Atmospheric,OCEANSAT-2,Kolkata,West Bengal,East,22.5726,88.3639,60.1,111.2,145.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Atmospheric,OCEANSAT-2,Kolkata,West Bengal,East,22.5726,88.3639,61.1,112.8,147.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,VEDAS_Atmospheric,OCEANSAT-2,Pune,Maharashtra,West,18.5204,73.8567,49.2,93.7,122.0,0.2,2.00e+15,1.00e+15,1km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,VEDAS_Atmospheric,OCEANSAT-2,Pune,Maharashtra,West,18.5204,73.8567,50.2,95.3,124.0,0.22,2.20e+15,1.10e+15,1km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,VEDAS_Atmospheric,OCEANSAT-2,Pune,Maharashtra,West,18.5204,73.8567,51.2,96.9,126.0,0.24,2.40e+15,1.20e+15,1km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,VEDAS_Atmospheric,OCEANSAT-2,Pune,Maharashtra,West,18.5204,73.8567,52.2,98.5,128.0,0.26,2.60e+15,1.30e+15,1km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,VEDAS_Atmospheric,OCEANSAT-2,Pune,Maharashtra,West,18.5204,73.8567,53.2,100.1,130.0,0.28,2.80e+15,1.40e+15,1km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,VEDAS_Atmospheric,OCEANSAT-2,Pune,Maharashtra,West,18.5204,73.8567,54.2,101.7,132.0,0.3,3.00e+15,1.50e+15,1km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,VEDAS_Atmospheric,OCEANSAT-2,Pune,Maharashtra,West,18.5204,73.8567,55.2,103.3,134.0,0.32,3.20e+15,1.60e+15,1km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,VEDAS_Atmospheric,OCEANSAT-2,Pune,Maharashtra,West,18.5204,73.8567,56.2,104.9,136.0,0.34,3.40e+15,1.70e+15,1km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,VEDAS_Atmospheric,OCEANSAT-2,Pune,Maharashtra,West,18.5204,73.8567,57.2,106.5,138.0,0.36,3.60e+15,1.80e+15,1km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,VEDAS_Atmospheric,OCEANSAT-2,Pune,Maharashtra,West,18.5204,73.8567,58.2,108.1,141.0,0.38,3.80e+15,1.90e+15,1km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,VEDAS_Atmospheric,OCEANSAT-2,Pune,Maharashtra,West,18.5204,73.8567,59.2,109.7,143.0,0.4,4.00e+15,2.00e+15,1km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,VEDAS_Atmospheric,OCEANSAT-2,Pune,Maharashtra,West,18.5204,73.8567,60.2,111.3,145.0,0.42,4.20e+15,2.10e+15,1km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Bengaluru,Karnataka,South,12.9716,77.5946,50.7,96.1,125.0,0.2,2.00e+15,1.00e+15,2km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Bengaluru,Karnataka,South,12.9716,77.5946,51.7,97.7,127.0,0.22,2.20e+15,1.10e+15,2km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Bengaluru,Karnataka,South,12.9716,77.5946,52.7,99.3,129.0,0.24,2.40e+15,1.20e+15,2km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Bengaluru,Karnataka,South,12.9716,77.5946,53.7,100.9,131.0,0.26,2.60e+15,1.30e+15,2km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Bengaluru,Karnataka,South,12.9716,77.5946,54.7,102.5,133.0,0.28,2.80e+15,1.40e+15,2km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Bengaluru,Karnataka,South,12.9716,77.5946,55.7,104.1,135.0,0.3,3.00e+15,1.50e+15,2km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Bengaluru,Karnataka,South,12.9716,77.5946,56.7,105.7,137.0,0.32,3.20e+15,1.60e+15,2km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Bengaluru,Karnataka,South,12.9716,77.5946,57.7,107.3,140.0,0.34,3.40e+15,1.70e+15,2km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Bengaluru,Karnataka,South,12.9716,77.5946,58.7,108.9,142.0,0.36,3.60e+15,1.80e+15,2km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Bengaluru,Karnataka,South,12.9716,77.5946,59.7,110.5,144.0,0.38,3.80e+15,1.90e+15,2km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Bengaluru,Karnataka,South,12.9716,77.5946,60.7,112.1,146.0,0.4,4.00e+15,2.00e+15,2km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Bengaluru,Karnataka,South,12.9716,77.5946,61.7,113.7,148.0,0.42,4.20e+15,2.10e+15,2km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Mumbai,Maharashtra,West,19.076,72.8777,49.8,94.7,123.0,0.2,2.00e+15,1.00e+15,2km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Mumbai,Maharashtra,West,19.076,72.8777,50.8,96.3,125.0,0.22,2.20e+15,1.10e+15,2km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Mumbai,Maharashtra,West,19.076,72.8777,51.8,97.9,127.0,0.24,2.40e+15,1.20e+15,2km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Mumbai,Maharashtra,West,19.076,72.8777,52.8,99.5,129.0,0.26,2.60e+15,1.30e+15,2km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Mumbai,Maharashtra,West,19.076,72.8777,53.8,101.1,131.0,0.28,2.80e+15,1.40e+15,2km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Mumbai,Maharashtra,West,19.076,72.8777,54.8,102.7,133.0,0.3,3.00e+15,1.50e+15,2km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Mumbai,Maharashtra,West,19.076,72.8777,55.8,104.3,136.0,0.32,3.20e+15,1.60e+15,2km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Mumbai,Maharashtra,West,19.076,72.8777,56.8,105.9,138.0,0.34,3.40e+15,1.70e+15,2km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Mumbai,Maharashtra,West,19.076,72.8777,57.8,107.5,140.0,0.36,3.60e+15,1.80e+15,2km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Mumbai,Maharashtra,West,19.076,72.8777,58.8,109.1,142.0,0.38,3.80e+15,1.90e+15,2km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Mumbai,Maharashtra,West,19.076,72.8777,59.8,110.7,144.0,0.4,4.00e+15,2.00e+15,2km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Mumbai,Maharashtra,West,19.076,72.8777,60.8,112.3,146.0,0.42,4.20e+15,2.10e+15,2km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Delhi,Delhi,North,28.7041,77.1025,49.5,94.2,122.0,0.2,2.00e+15,1.00e+15,2km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Delhi,Delhi,North,28.7041,77.1025,50.5,95.8,125.0,0.22,2.20e+15,1.10e+15,2km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Delhi,Delhi,North,28.7041,77.1025,51.5,97.4,127.0,0.24,2.40e+15,1.20e+15,2km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Delhi,Delhi,North,28.7041,77.1025,52.5,99.0,129.0,0.26,2.60e+15,1.30e+15,2km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Delhi,Delhi,North,28.7041,77.1025,53.5,100.6,131.0,0.28,2.80e+15,1.40e+15,2km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Delhi,Delhi,North,28.7041,77.1025,54.5,102.2,133.0,0.3,3.00e+15,1.50e+15,2km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Delhi,Delhi,North,28.7041,77.1025,55.5,103.8,135.0,0.32,3.20e+15,1.60e+15,2km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Delhi,Delhi,North,28.7041,77.1025,56.5,105.4,137.0,0.34,3.40e+15,1.70e+15,2km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Delhi,Delhi,North,28.7041,77.1025,57.5,107.0,139.0,0.36,3.60e+15,1.80e+15,2km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Delhi,Delhi,North,28.7041,77.1025,58.5,108.6,141.0,0.38,3.80e+15,1.90e+15,2km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Delhi,Delhi,North,28.7041,77.1025,59.5,110.2,143.0,0.4,4.00e+15,2.00e+15,2km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Delhi,Delhi,North,28.7041,77.1025,60.5,111.8,145.0,0.42,4.20e+15,2.10e+15,2km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Chennai,Tamil Nadu,South,13.0827,80.2707,50.1,95.2,124.0,0.2,2.00e+15,1.00e+15,2km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Chennai,Tamil Nadu,South,13.0827,80.2707,51.1,96.8,126.0,0.22,2.20e+15,1.10e+15,2km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Chennai,Tamil Nadu,South,13.0827,80.2707,52.1,98.4,128.0,0.24,2.40e+15,1.20e+15,2km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Chennai,Tamil Nadu,South,13.0827,80.2707,53.1,100.0,130.0,0.26,2.60e+15,1.30e+15,2km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Chennai,Tamil Nadu,South,13.0827,80.2707,54.1,101.6,132.0,0.28,2.80e+15,1.40e+15,2km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Chennai,Tamil Nadu,South,13.0827,80.2707,55.1,103.2,134.0,0.3,3.00e+15,1.50e+15,2km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Chennai,Tamil Nadu,South,13.0827,80.2707,56.1,104.8,136.0,0.32,3.20e+15,1.60e+15,2km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Chennai,Tamil Nadu,South,13.0827,80.2707,57.1,106.4,138.0,0.34,3.40e+15,1.70e+15,2km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Chennai,Tamil Nadu,South,13.0827,80.2707,58.1,108.0,140.0,0.36,3.60e+15,1.80e+15,2km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Chennai,Tamil Nadu,South,13.0827,80.2707,59.1,109.6,142.0,0.38,3.80e+15,1.90e+15,2km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Chennai,Tamil Nadu,South,13.0827,80.2707,60.1,111.2,145.0,0.4,4.00e+15,2.00e+15,2km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Chennai,Tamil Nadu,South,13.0827,80.2707,61.1,112.8,147.0,0.42,4.20e+15,2.10e+15,2km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Hyderabad,Telangana,South,17.385,78.4867,50.7,96.1,125.0,0.2,2.00e+15,1.00e+15,2km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Hyderabad,Telangana,South,17.385,78.4867,51.7,97.7,127.0,0.22,2.20e+15,1.10e+15,2km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Hyderabad,Telangana,South,17.385,78.4867,52.7,99.3,129.0,0.24,2.40e+15,1.20e+15,2km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Hyderabad,Telangana,South,17.385,78.4867,53.7,100.9,131.0,0.26,2.60e+15,1.30e+15,2km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Hyderabad,Telangana,South,17.385,78.4867,54.7,102.5,133.0,0.28,2.80e+15,1.40e+15,2km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Hyderabad,Telangana,South,17.385,78.4867,55.7,104.1,135.0,0.3,3.00e+15,1.50e+15,2km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Hyderabad,Telangana,South,17.385,78.4867,56.7,105.7,137.0,0.32,3.20e+15,1.60e+15,2km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Hyderabad,Telangana,South,17.385,78.4867,57.7,107.3,140.0,0.34,3.40e+15,1.70e+15,2km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Hyderabad,Telangana,South,17.385,78.4867,58.7,108.9,142.0,0.36,3.60e+15,1.80e+15,2km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Hyderabad,Telangana,South,17.385,78.4867,59.7,110.5,144.0,0.38,3.80e+15,1.90e+15,2km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Hyderabad,Telangana,South,17.385,78.4867,60.7,112.1,146.0,0.4,4.00e+15,2.00e+15,2km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Hyderabad,Telangana,South,17.385,78.4867,61.7,113.7,148.0,0.42,4.20e+15,2.10e+15,2km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Ahmedabad,Gujarat,West,23.0225,72.5714,50.7,96.1,125.0,0.2,2.00e+15,1.00e+15,2km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Ahmedabad,Gujarat,West,23.0225,72.5714,51.7,97.7,127.0,0.22,2.20e+15,1.10e+15,2km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Ahmedabad,Gujarat,West,23.0225,72.5714,52.7,99.3,129.0,0.24,2.40e+15,1.20e+15,2km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Ahmedabad,Gujarat,West,23.0225,72.5714,53.7,100.9,131.0,0.26,2.60e+15,1.30e+15,2km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Ahmedabad,Gujarat,West,23.0225,72.5714,54.7,102.5,133.0,0.28,2.80e+15,1.40e+15,2km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Ahmedabad,Gujarat,West,23.0225,72.5714,55.7,104.1,135.0,0.3,3.00e+15,1.50e+15,2km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Ahmedabad,Gujarat,West,23.0225,72.5714,56.7,105.7,137.0,0.32,3.20e+15,1.60e+15,2km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Ahmedabad,Gujarat,West,23.0225,72.5714,57.7,107.3,140.0,0.34,3.40e+15,1.70e+15,2km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Ahmedabad,Gujarat,West,23.0225,72.5714,58.7,108.9,142.0,0.36,3.60e+15,1.80e+15,2km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Ahmedabad,Gujarat,West,23.0225,72.5714,59.7,110.5,144.0,0.38,3.80e+15,1.90e+15,2km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Ahmedabad,Gujarat,West,23.0225,72.5714,60.7,112.1,146.0,0.4,4.00e+15,2.00e+15,2km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Ahmedabad,Gujarat,West,23.0225,72.5714,61.7,113.7,148.0,0.42,4.20e+15,2.10e+15,2km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Kolkata,West Bengal,East,22.5726,88.3639,50.1,95.2,124.0,0.2,2.00e+15,1.00e+15,2km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Kolkata,West Bengal,East,22.5726,88.3639,51.1,96.8,126.0,0.22,2.20e+15,1.10e+15,2km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Kolkata,West Bengal,East,22.5726,88.3639,52.1,98.4,128.0,0.24,2.40e+15,1.20e+15,2km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Kolkata,West Bengal,East,22.5726,88.3639,53.1,100.0,130.0,0.26,2.60e+15,1.30e+15,2km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Kolkata,West Bengal,East,22.5726,88.3639,54.1,101.6,132.0,0.28,2.80e+15,1.40e+15,2km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Kolkata,West Bengal,East,22.5726,88.3639,55.1,103.2,134.0,0.3,3.00e+15,1.50e+15,2km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Kolkata,West Bengal,East,22.5726,88.3639,56.1,104.8,136.0,0.32,3.20e+15,1.60e+15,2km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Kolkata,West Bengal,East,22.5726,88.3639,57.1,106.4,138.0,0.34,3.40e+15,1.70e+15,2km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Kolkata,West Bengal,East,22.5726,88.3639,58.1,108.0,140.0,0.36,3.60e+15,1.80e+15,2km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Kolkata,West Bengal,East,22.5726,88.3639,59.1,109.6,142.0,0.38,3.80e+15,1.90e+15,2km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Kolkata,West Bengal,East,22.5726,88.3639,60.1,111.2,145.0,0.4,4.00e+15,2.00e+15,2km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Kolkata,West Bengal,East,22.5726,88.3639,61.1,112.8,147.0,0.42,4.20e+15,2.10e+15,2km,66,Level-1,Atmospheric_Corrected,74,26.0
+2025-09-08 00:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Pune,Maharashtra,West,18.5204,73.8567,49.2,93.7,122.0,0.2,2.00e+15,1.00e+15,2km,0,Level-2,Atmospheric_Corrected,30,15.0
+2025-09-08 02:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Pune,Maharashtra,West,18.5204,73.8567,50.2,95.3,124.0,0.22,2.20e+15,1.10e+15,2km,6,Level-1,Atmospheric_Corrected,34,16.0
+2025-09-08 04:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Pune,Maharashtra,West,18.5204,73.8567,51.2,96.9,126.0,0.24,2.40e+15,1.20e+15,2km,12,Level-2,Atmospheric_Corrected,38,17.0
+2025-09-08 06:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Pune,Maharashtra,West,18.5204,73.8567,52.2,98.5,128.0,0.26,2.60e+15,1.30e+15,2km,18,Level-1,Atmospheric_Corrected,42,18.0
+2025-09-08 08:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Pune,Maharashtra,West,18.5204,73.8567,53.2,100.1,130.0,0.28,2.80e+15,1.40e+15,2km,24,Level-2,Atmospheric_Corrected,46,19.0
+2025-09-08 10:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Pune,Maharashtra,West,18.5204,73.8567,54.2,101.7,132.0,0.3,3.00e+15,1.50e+15,2km,30,Level-1,Atmospheric_Corrected,50,20.0
+2025-09-08 12:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Pune,Maharashtra,West,18.5204,73.8567,55.2,103.3,134.0,0.32,3.20e+15,1.60e+15,2km,36,Level-2,Atmospheric_Corrected,54,21.0
+2025-09-08 14:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Pune,Maharashtra,West,18.5204,73.8567,56.2,104.9,136.0,0.34,3.40e+15,1.70e+15,2km,42,Level-1,Atmospheric_Corrected,58,22.0
+2025-09-08 16:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Pune,Maharashtra,West,18.5204,73.8567,57.2,106.5,138.0,0.36,3.60e+15,1.80e+15,2km,48,Level-2,Atmospheric_Corrected,62,23.0
+2025-09-08 18:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Pune,Maharashtra,West,18.5204,73.8567,58.2,108.1,141.0,0.38,3.80e+15,1.90e+15,2km,54,Level-1,Atmospheric_Corrected,66,24.0
+2025-09-08 20:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Pune,Maharashtra,West,18.5204,73.8567,59.2,109.7,143.0,0.4,4.00e+15,2.00e+15,2km,60,Level-2,Atmospheric_Corrected,70,25.0
+2025-09-08 22:00:00,MOSDAC_Aerosol,MEGHA-TROPIQUES,Pune,Maharashtra,West,18.5204,73.8567,60.2,111.3,145.0,0.42,4.20e+15,2.10e+15,2km,66,Level-1,Atmospheric_Corrected,74,26.0
