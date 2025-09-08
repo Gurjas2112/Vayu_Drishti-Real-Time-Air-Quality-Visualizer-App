@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vayudrishti/core/constants/app_colors.dart';
 
-class PollutantCard extends StatelessWidget {
+class PollutantCard extends StatefulWidget {
   final String name;
   final double value;
   final String unit;
@@ -14,9 +14,68 @@ class PollutantCard extends StatelessWidget {
   });
 
   @override
+  State<PollutantCard> createState() => _PollutantCardState();
+}
+
+class _PollutantCardState extends State<PollutantCard>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _progressAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    );
+
+    final progress = _getProgressValue(widget.name, widget.value);
+    _progressAnimation = Tween<double>(begin: 0.0, end: progress).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
+
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  double _getProgressValue(String pollutant, double value) {
+    double maxValue;
+    switch (pollutant) {
+      case 'PM2.5':
+        maxValue = 150.0;
+        break;
+      case 'PM10':
+        maxValue = 354.0;
+        break;
+      case 'O3':
+        maxValue = 240.0;
+        break;
+      case 'NO2':
+        maxValue = 800.0;
+        break;
+      case 'SO2':
+        maxValue = 500.0;
+        break;
+      case 'CO':
+        maxValue = 15.0;
+        break;
+      default:
+        maxValue = 100.0;
+    }
+    return (value / maxValue).clamp(0.0, 1.0);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final pollutantColor = _getPollutantColor(name, value);
-    final level = _getPollutantLevel(name, value);
+    final pollutantColor = _getPollutantColor(widget.name, widget.value);
+    final level = _getPollutantLevel(widget.name, widget.value);
+    final healthIcon = _getHealthIcon(widget.name, widget.value);
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -38,7 +97,7 @@ class PollutantCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header with icon and name
+          // Enhanced Header with icon and name
           Row(
             children: [
               Container(
@@ -48,7 +107,7 @@ class PollutantCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Icon(
-                  _getPollutantIcon(name),
+                  _getPollutantIcon(widget.name),
                   color: pollutantColor,
                   size: 16,
                 ),
@@ -56,7 +115,7 @@ class PollutantCard extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
-                  name,
+                  widget.name,
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
@@ -64,17 +123,19 @@ class PollutantCard extends StatelessWidget {
                   ),
                 ),
               ),
+              // Health indicator emoji
+              Text(healthIcon, style: const TextStyle(fontSize: 16)),
             ],
           ),
 
           const SizedBox(height: 12),
 
-          // Value
+          // Enhanced Value Display
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                value.toStringAsFixed(1),
+                widget.value.toStringAsFixed(1),
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -85,7 +146,7 @@ class PollutantCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 2),
                 child: Text(
-                  unit,
+                  widget.unit,
                   style: const TextStyle(
                     fontSize: 12,
                     color: AppColors.textSecondary,
@@ -95,27 +156,182 @@ class PollutantCard extends StatelessWidget {
             ],
           ),
 
+          const SizedBox(height: 12),
+
+          // Animated Progress Bar
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    level,
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                      color: pollutantColor,
+                    ),
+                  ),
+                  Text(
+                    '${(_getProgressValue(widget.name, widget.value) * 100).toInt()}%',
+                    style: const TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 4),
+              Stack(
+                children: [
+                  Container(
+                    height: 6,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                  ),
+                  AnimatedBuilder(
+                    animation: _progressAnimation,
+                    builder: (context, child) {
+                      return SizedBox(
+                        height: 6,
+                        width: double.infinity,
+                        child: FractionallySizedBox(
+                          alignment: Alignment.centerLeft,
+                          widthFactor: _progressAnimation.value,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: pollutantColor,
+                              borderRadius: BorderRadius.circular(3),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: pollutantColor.withValues(alpha: 0.3),
+                                  blurRadius: 4,
+                                  offset: const Offset(0, 1),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
+
           const SizedBox(height: 8),
 
-          // Level indicator
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            decoration: BoxDecoration(
-              color: pollutantColor.withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Text(
-              level,
-              style: TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.w600,
-                color: pollutantColor,
+          // Enhanced Level indicator with trend
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: pollutantColor.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(_getTrendIcon(), size: 10, color: pollutantColor),
+                    const SizedBox(width: 4),
+                    Text(
+                      level,
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w600,
+                        color: pollutantColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
+              // Health status indicator
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                decoration: BoxDecoration(
+                  color: _getHealthStatusColor().withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  _getHealthStatus(),
+                  style: TextStyle(
+                    fontSize: 8,
+                    fontWeight: FontWeight.w600,
+                    color: _getHealthStatusColor(),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
     );
+  }
+
+  String _getHealthIcon(String pollutant, double value) {
+    final level = _getPollutantLevel(pollutant, value);
+    switch (level) {
+      case 'Good':
+        return '😊';
+      case 'Fair':
+        return '🙂';
+      case 'Moderate':
+        return '😐';
+      case 'Poor':
+        return '😷';
+      case 'Very Poor':
+        return '☠️';
+      default:
+        return '❓';
+    }
+  }
+
+  IconData _getTrendIcon() {
+    // For now, showing stable trend. In real app, this would be calculated from historical data
+    return Icons.trending_flat;
+  }
+
+  String _getHealthStatus() {
+    final level = _getPollutantLevel(widget.name, widget.value);
+    switch (level) {
+      case 'Good':
+        return 'Safe';
+      case 'Fair':
+        return 'OK';
+      case 'Moderate':
+        return 'Caution';
+      case 'Poor':
+        return 'Unhealthy';
+      case 'Very Poor':
+        return 'Dangerous';
+      default:
+        return 'Unknown';
+    }
+  }
+
+  Color _getHealthStatusColor() {
+    final level = _getPollutantLevel(widget.name, widget.value);
+    switch (level) {
+      case 'Good':
+        return AppColors.successColor;
+      case 'Fair':
+        return AppColors.infoColor;
+      case 'Moderate':
+        return AppColors.warningColor;
+      case 'Poor':
+      case 'Very Poor':
+        return AppColors.errorColor;
+      default:
+        return AppColors.textSecondary;
+    }
   }
 
   Color _getPollutantColor(String pollutant, double value) {

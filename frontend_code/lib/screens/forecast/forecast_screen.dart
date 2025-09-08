@@ -13,19 +13,55 @@ class ForecastScreen extends StatefulWidget {
   State<ForecastScreen> createState() => _ForecastScreenState();
 }
 
-class _ForecastScreenState extends State<ForecastScreen> {
+class _ForecastScreenState extends State<ForecastScreen>
+    with TickerProviderStateMixin {
   String _selectedTimeframe = '24H';
   int _selectedTab = 0;
 
   final List<String> _timeframes = ['24H', '72H', 'Weekly'];
   final List<String> _tabs = ['AQI', 'PM2.5', 'PM10', 'O3'];
 
+  late AnimationController _chartAnimationController;
+  late AnimationController _tabAnimationController;
+  late Animation<double> _chartAnimation;
+  late Animation<double> _tabAnimation;
+
   @override
   void initState() {
     super.initState();
+    _chartAnimationController = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    );
+    _tabAnimationController = AnimationController(
+      duration: const Duration(milliseconds: 600),
+      vsync: this,
+    );
+
+    _chartAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _chartAnimationController,
+        curve: Curves.easeInOut,
+      ),
+    );
+    _tabAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _tabAnimationController,
+        curve: Curves.elasticOut,
+      ),
+    );
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _loadForecastData();
+      _tabAnimationController.forward();
     });
+  }
+
+  @override
+  void dispose() {
+    _chartAnimationController.dispose();
+    _tabAnimationController.dispose();
+    super.dispose();
   }
 
   Future<void> _loadForecastData() async {
@@ -44,6 +80,8 @@ class _ForecastScreenState extends State<ForecastScreen> {
         locationProvider.latitude!,
         locationProvider.longitude!,
       );
+      // Trigger chart animation after data loads
+      _chartAnimationController.forward();
     }
   }
 
@@ -191,57 +229,80 @@ class _ForecastScreenState extends State<ForecastScreen> {
 
           const SizedBox(height: 20),
 
-          // Chart Tabs
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: _tabs.asMap().entries.map((entry) {
-                final index = entry.key;
-                final tab = entry.value;
-                final isSelected = _selectedTab == index;
+          // Enhanced Chart Tabs with Animation
+          AnimatedBuilder(
+            animation: _tabAnimation,
+            builder: (context, child) {
+              return Transform.scale(
+                scale: _tabAnimation.value,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: _tabs.asMap().entries.map((entry) {
+                      final index = entry.key;
+                      final tab = entry.value;
+                      final isSelected = _selectedTab == index;
 
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _selectedTab = index;
-                    });
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.only(right: 8),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      color: isSelected
-                          ? AppColors.primaryColor
-                          : AppColors.surfaceColor,
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: isSelected
-                            ? AppColors.primaryColor
-                            : AppColors.borderColor,
-                      ),
-                    ),
-                    child: Text(
-                      tab,
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        color: isSelected
-                            ? Colors.white
-                            : AppColors.textSecondary,
-                      ),
-                    ),
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _selectedTab = index;
+                          });
+                          // Restart chart animation on tab change
+                          _chartAnimationController.reset();
+                          _chartAnimationController.forward();
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          margin: const EdgeInsets.only(right: 8),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: isSelected
+                                ? AppColors.primaryColor
+                                : AppColors.surfaceColor,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: isSelected
+                                  ? AppColors.primaryColor
+                                  : AppColors.borderColor,
+                            ),
+                            boxShadow: isSelected
+                                ? [
+                                    BoxShadow(
+                                      color: AppColors.primaryColor.withValues(
+                                        alpha: 0.3,
+                                      ),
+                                      blurRadius: 8,
+                                      offset: const Offset(0, 2),
+                                    ),
+                                  ]
+                                : null,
+                          ),
+                          child: Text(
+                            tab,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: isSelected
+                                  ? Colors.white
+                                  : AppColors.textSecondary,
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
                   ),
-                );
-              }).toList(),
-            ),
+                ),
+              );
+            },
           ),
 
           const SizedBox(height: 20),
 
-          // Chart
+          // Enhanced Animated Chart
           SizedBox(
             height: 200,
             child: Consumer<AirQualityProvider>(
@@ -263,7 +324,15 @@ class _ForecastScreenState extends State<ForecastScreen> {
                   );
                 }
 
-                return _buildLineChart(airQualityProvider.forecastData);
+                return AnimatedBuilder(
+                  animation: _chartAnimation,
+                  builder: (context, child) {
+                    return _buildEnhancedLineChart(
+                      airQualityProvider.forecastData,
+                      _chartAnimation.value,
+                    );
+                  },
+                );
               },
             ),
           ),
@@ -272,10 +341,18 @@ class _ForecastScreenState extends State<ForecastScreen> {
     );
   }
 
-  Widget _buildLineChart(List<ForecastData> forecastData) {
+  Widget _buildEnhancedLineChart(
+    List<ForecastData> forecastData,
+    double animationValue,
+  ) {
     final spots = <FlSpot>[];
+    final maxDataPoints = _selectedTimeframe == '24H'
+        ? 24
+        : _selectedTimeframe == '72H'
+        ? 72
+        : 168;
 
-    for (int i = 0; i < forecastData.length && i < 24; i++) {
+    for (int i = 0; i < forecastData.length && i < maxDataPoints; i++) {
       final data = forecastData[i];
       double value;
 
@@ -296,17 +373,27 @@ class _ForecastScreenState extends State<ForecastScreen> {
           value = data.aqi.toDouble();
       }
 
-      spots.add(FlSpot(i.toDouble(), value));
+      spots.add(FlSpot(i.toDouble(), value * animationValue));
     }
 
     return LineChart(
       LineChartData(
         gridData: FlGridData(
           show: true,
-          drawVerticalLine: false,
+          drawVerticalLine: true,
           horizontalInterval: _selectedTab == 0 ? 50 : 20,
+          verticalInterval: maxDataPoints / 6,
           getDrawingHorizontalLine: (value) {
-            return FlLine(color: AppColors.borderColor, strokeWidth: 1);
+            return FlLine(
+              color: AppColors.borderColor.withValues(alpha: 0.3),
+              strokeWidth: 1,
+            );
+          },
+          getDrawingVerticalLine: (value) {
+            return FlLine(
+              color: AppColors.borderColor.withValues(alpha: 0.2),
+              strokeWidth: 1,
+            );
           },
         ),
         titlesData: FlTitlesData(
@@ -321,6 +408,7 @@ class _ForecastScreenState extends State<ForecastScreen> {
             sideTitles: SideTitles(
               showTitles: true,
               interval: _selectedTab == 0 ? 50 : 20,
+              reservedSize: 40,
               getTitlesWidget: (value, meta) {
                 return Text(
                   value.toInt().toString(),
@@ -335,28 +423,87 @@ class _ForecastScreenState extends State<ForecastScreen> {
           bottomTitles: AxisTitles(
             sideTitles: SideTitles(
               showTitles: true,
-              interval: 6,
+              interval: maxDataPoints / 6,
+              reservedSize: 30,
               getTitlesWidget: (value, meta) {
                 if (value.toInt() < forecastData.length) {
                   final dateTime = forecastData[value.toInt()].dateTime;
-                  return Text(
-                    DateFormat('HH:mm').format(dateTime),
-                    style: const TextStyle(
-                      fontSize: 10,
-                      color: AppColors.textSecondary,
-                    ),
-                  );
+                  if (_selectedTimeframe == 'Weekly') {
+                    return Text(
+                      DateFormat('dd/MM').format(dateTime),
+                      style: const TextStyle(
+                        fontSize: 10,
+                        color: AppColors.textSecondary,
+                      ),
+                    );
+                  } else {
+                    return Text(
+                      DateFormat('HH:mm').format(dateTime),
+                      style: const TextStyle(
+                        fontSize: 10,
+                        color: AppColors.textSecondary,
+                      ),
+                    );
+                  }
                 }
                 return const Text('');
               },
             ),
           ),
         ),
-        borderData: FlBorderData(show: false),
+        borderData: FlBorderData(
+          show: true,
+          border: Border.all(
+            color: AppColors.borderColor.withValues(alpha: 0.2),
+            width: 1,
+          ),
+        ),
+        lineTouchData: LineTouchData(
+          enabled: true,
+          touchTooltipData: LineTouchTooltipData(
+            getTooltipItems: (touchedSpots) {
+              return touchedSpots.map((spot) {
+                final DateTime dateTime = forecastData[spot.x.toInt()].dateTime;
+                final String unit = _selectedTab == 0
+                    ? 'AQI'
+                    : _selectedTab == 1 || _selectedTab == 2
+                    ? 'μg/m³'
+                    : 'μg/m³';
+
+                return LineTooltipItem(
+                  '${spot.y.toStringAsFixed(1)} $unit\n${DateFormat('HH:mm').format(dateTime)}',
+                  const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 12,
+                  ),
+                );
+              }).toList();
+            },
+          ),
+          handleBuiltInTouches: true,
+          getTouchedSpotIndicator: (barData, spotIndexes) {
+            return spotIndexes.map((spotIndex) {
+              return TouchedSpotIndicatorData(
+                FlLine(color: AppColors.primaryColor, strokeWidth: 2),
+                FlDotData(
+                  getDotPainter: (spot, percent, barData, index) =>
+                      FlDotCirclePainter(
+                        radius: 6,
+                        color: AppColors.primaryColor,
+                        strokeWidth: 2,
+                        strokeColor: Colors.white,
+                      ),
+                ),
+              );
+            }).toList();
+          },
+        ),
         lineBarsData: [
           LineChartBarData(
             spots: spots,
             isCurved: true,
+            curveSmoothness: 0.3,
             color: AppColors.primaryColor,
             barWidth: 3,
             isStrokeCapRound: true,
@@ -373,10 +520,22 @@ class _ForecastScreenState extends State<ForecastScreen> {
             ),
             belowBarData: BarAreaData(
               show: true,
-              color: AppColors.primaryColor.withValues(alpha: 0.1),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  AppColors.primaryColor.withValues(
+                    alpha: 0.3 * animationValue,
+                  ),
+                  AppColors.primaryColor.withValues(
+                    alpha: 0.1 * animationValue,
+                  ),
+                ],
+              ),
             ),
           ),
         ],
+        minY: 0,
       ),
     );
   }

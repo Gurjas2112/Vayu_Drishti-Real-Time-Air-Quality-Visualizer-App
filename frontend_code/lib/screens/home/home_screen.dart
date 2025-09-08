@@ -8,6 +8,7 @@ import 'package:vayudrishti/providers/auth_provider.dart';
 import 'package:vayudrishti/widgets/aqi_card.dart';
 import 'package:vayudrishti/widgets/pollutant_card.dart';
 import 'package:vayudrishti/widgets/health_advisory_card.dart';
+import 'package:vayudrishti/screens/notifications/notifications_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -151,7 +152,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.white,
               ),
               onPressed: () {
-                // TODO: Implement notifications
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NotificationsScreen(),
+                  ),
+                );
               },
             ),
           ],

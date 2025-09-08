@@ -45,5 +45,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	
+	<!-- Location permissions for Geolocator -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>VayuDrishti needs location access to show air quality data for your current area and provide personalized health recommendations.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>VayuDrishti needs location access to provide real-time air quality alerts and monitoring for your area.</string>
 </dict>
 </plist>
