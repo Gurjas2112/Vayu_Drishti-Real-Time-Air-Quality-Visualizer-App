@@ -1,0 +1,18 @@
+<!-- This is a placeholder for the VayuDrishti app logo -->
+<!-- Replace this with your actual satellite-themed logo -->
+<!-- Recommended size: 512x512 pixels -->
+<!-- Format: PNG with transparency -->
+
+🛰️ VayuDrishti Logo Placeholder
+
+For the actual app, you would need:
+1. App logo/icon in various sizes (512x512, 256x256, 128x128, etc.)
+2. Splash screen background image
+3. Weather/air quality related icons
+4. Satellite imagery for the logo
+
+Suggested logo design:
+- Satellite icon with Earth in background
+- Air quality waves or pollution indicators
+- ISRO-inspired color scheme
+- Clean, modern design suitable for mobile app
