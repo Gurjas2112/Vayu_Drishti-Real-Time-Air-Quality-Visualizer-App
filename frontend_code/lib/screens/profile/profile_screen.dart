@@ -4,7 +4,8 @@ import 'package:vayudrishti/core/constants/app_colors.dart';
 import 'package:vayudrishti/core/constants/app_strings.dart';
 import 'package:vayudrishti/core/routes/app_routes.dart';
 import 'package:vayudrishti/providers/auth_provider.dart';
-import 'package:vayudrishti/screens/notifications/notifications_screen.dart';
+import 'package:vayudrishti/core/backend_connection_service.dart';
+import 'package:vayudrishti/screens/profile/notifications/notifications_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -72,6 +73,46 @@ class _ProfileScreenState extends State<ProfileScreen>
         ),
         backgroundColor: AppColors.primaryColor,
         elevation: 0,
+        actions: [
+          Consumer<BackendConnectionService>(
+            builder: (context, connectionService, child) {
+              final isConnected = connectionService.hasAnyConnection;
+              return Container(
+                margin: const EdgeInsets.only(right: 12, top: 8, bottom: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: isConnected
+                      ? Colors.green.withValues(alpha: 0.2)
+                      : Colors.orange.withValues(alpha: 0.2),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: isConnected ? Colors.green : Colors.orange,
+                    width: 1,
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      isConnected ? Icons.cloud_done : Icons.cloud_off,
+                      size: 16,
+                      color: isConnected ? Colors.green : Colors.orange,
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      isConnected ? 'Online' : 'Offline',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: isConnected ? Colors.green : Colors.orange,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -286,6 +327,16 @@ class _ProfileScreenState extends State<ProfileScreen>
             ),
             _buildDivider(),
 
+            // Backend Connection Settings
+            _buildMenuItem(
+              icon: Icons.cloud_outlined,
+              title: 'Backend Settings',
+              subtitle: 'API connection and data sync settings',
+              onTap: () => _showBackendSettings(),
+              iconColor: AppColors.infoColor,
+            ),
+            _buildDivider(),
+
             _buildMenuItem(
               icon: Icons.settings_outlined,
               title: AppStrings.settings,
@@ -494,6 +545,401 @@ class _ProfileScreenState extends State<ProfileScreen>
             child: const Text('Cancel'),
           ),
         ],
+      ),
+    );
+  }
+
+  void _showBackendSettings() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        height: MediaQuery.of(context).size.height * 0.7,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 12),
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(20),
+              child: Text(
+                'Backend Settings',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.textPrimary,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Consumer<BackendConnectionService>(
+                builder: (context, connectionService, child) {
+                  return ListView(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    children: [
+                      // Connection Status Card
+                      _buildConnectionStatusCard(connectionService),
+                      const SizedBox(height: 16),
+
+                      // Backend Settings Options
+                      _buildBackendSettingCard(
+                        'Auto-Reconnect',
+                        'Automatically reconnect when connection is lost',
+                        Icons.autorenew,
+                        () => _showFeatureDialog(
+                          'Auto-Reconnect',
+                          'Auto-reconnect settings coming soon!',
+                        ),
+                      ),
+                      _buildBackendSettingCard(
+                        'Real-time Updates',
+                        'Enable live data streaming from server',
+                        Icons.stream,
+                        () => _showFeatureDialog(
+                          'Real-time Updates',
+                          'Real-time settings coming soon!',
+                        ),
+                      ),
+                      _buildBackendSettingCard(
+                        'Data Sync Frequency',
+                        'How often to sync data with server',
+                        Icons.sync,
+                        () => _showFeatureDialog(
+                          'Data Sync',
+                          'Sync frequency settings coming soon!',
+                        ),
+                      ),
+                      _buildBackendSettingCard(
+                        'API Configuration',
+                        'Configure API endpoints and settings',
+                        Icons.settings_applications,
+                        () => _showFeatureDialog(
+                          'API Configuration',
+                          'API configuration coming soon!',
+                        ),
+                      ),
+
+                      // Action Buttons
+                      const SizedBox(height: 20),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: ElevatedButton.icon(
+                              onPressed: () =>
+                                  _testConnection(connectionService),
+                              icon: const Icon(Icons.network_check),
+                              label: const Text('Test Connection'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.infoColor,
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 12,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: ElevatedButton.icon(
+                              onPressed: () =>
+                                  _reconnectBackend(connectionService),
+                              icon: const Icon(Icons.refresh),
+                              label: const Text('Reconnect'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.primaryColor,
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 12,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildConnectionStatusCard(
+    BackendConnectionService connectionService,
+  ) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.surfaceColor,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppColors.dividerColor),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Connection Status',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: AppColors.textPrimary,
+            ),
+          ),
+          const SizedBox(height: 12),
+
+          // API Status
+          Row(
+            children: [
+              Container(
+                width: 8,
+                height: 8,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: connectionService.isApiConnected
+                      ? Colors.green
+                      : Colors.red,
+                ),
+              ),
+              const SizedBox(width: 8),
+              const Text('API Server: '),
+              Text(
+                connectionService.isApiConnected ? 'Connected' : 'Disconnected',
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: connectionService.isApiConnected
+                      ? Colors.green
+                      : Colors.red,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+
+          // Realtime Status
+          Row(
+            children: [
+              Container(
+                width: 8,
+                height: 8,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: connectionService.isRealtimeConnected
+                      ? Colors.green
+                      : Colors.red,
+                ),
+              ),
+              const SizedBox(width: 8),
+              const Text('Real-time: '),
+              Text(
+                connectionService.isRealtimeConnected
+                    ? 'Connected'
+                    : 'Disconnected',
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: connectionService.isRealtimeConnected
+                      ? Colors.green
+                      : Colors.red,
+                ),
+              ),
+            ],
+          ),
+
+          if (connectionService.errorMessage != null) ...[
+            const SizedBox(height: 8),
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.red.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Row(
+                children: [
+                  const Icon(Icons.error_outline, color: Colors.red, size: 16),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      connectionService.errorMessage!,
+                      style: const TextStyle(color: Colors.red, fontSize: 12),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+
+          if (connectionService.lastConnectionCheck != null) ...[
+            const SizedBox(height: 8),
+            Text(
+              'Last checked: ${_formatLastCheck(connectionService.lastConnectionCheck!)}',
+              style: const TextStyle(
+                fontSize: 12,
+                color: AppColors.textSecondary,
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBackendSettingCard(
+    String title,
+    String subtitle,
+    IconData icon,
+    VoidCallback onTap,
+  ) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      child: ListTile(
+        leading: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: AppColors.infoColor.withValues(alpha: 0.1),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Icon(icon, color: AppColors.infoColor, size: 20),
+        ),
+        title: Text(
+          title,
+          style: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: AppColors.textPrimary,
+          ),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
+        ),
+        trailing: const Icon(
+          Icons.chevron_right,
+          color: AppColors.textSecondary,
+        ),
+        onTap: onTap,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        tileColor: AppColors.surfaceColor,
+      ),
+    );
+  }
+
+  String _formatLastCheck(DateTime lastCheck) {
+    final now = DateTime.now();
+    final difference = now.difference(lastCheck);
+
+    if (difference.inSeconds < 60) {
+      return '${difference.inSeconds}s ago';
+    } else if (difference.inMinutes < 60) {
+      return '${difference.inMinutes}m ago';
+    } else if (difference.inHours < 24) {
+      return '${difference.inHours}h ago';
+    } else {
+      return '${difference.inDays}d ago';
+    }
+  }
+
+  void _testConnection(BackendConnectionService connectionService) async {
+    // Show loading dialog
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => const AlertDialog(
+        content: Row(
+          children: [
+            CircularProgressIndicator(),
+            SizedBox(width: 16),
+            Text('Testing connection...'),
+          ],
+        ),
+      ),
+    );
+
+    // Test connection
+    await connectionService.checkApiConnection();
+
+    if (!mounted) return;
+
+    // Close loading dialog
+    Navigator.pop(context);
+
+    // Show result
+    final isConnected = connectionService.hasAnyConnection;
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Row(
+          children: [
+            Icon(
+              isConnected ? Icons.check_circle : Icons.error,
+              color: isConnected ? Colors.green : Colors.red,
+            ),
+            const SizedBox(width: 8),
+            Text('Connection ${isConnected ? 'Success' : 'Failed'}'),
+          ],
+        ),
+        content: Text(
+          isConnected
+              ? connectionService.getConnectionStatusSummary()
+              : connectionService.errorMessage ??
+                    'Could not connect to backend services.',
+        ),
+        actions: [
+          ElevatedButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _reconnectBackend(BackendConnectionService connectionService) async {
+    // Show loading dialog
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => const AlertDialog(
+        content: Row(
+          children: [
+            CircularProgressIndicator(),
+            SizedBox(width: 16),
+            Text('Reconnecting...'),
+          ],
+        ),
+      ),
+    );
+
+    // Reconnect
+    await connectionService.retryConnections();
+
+    if (!mounted) return;
+
+    // Close loading dialog
+    Navigator.pop(context);
+
+    // Show result
+    final isConnected = connectionService.hasAnyConnection;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          isConnected
+              ? 'Successfully reconnected to backend!'
+              : 'Failed to reconnect. Please try again.',
+        ),
+        backgroundColor: isConnected ? Colors.green : Colors.red,
       ),
     );
   }

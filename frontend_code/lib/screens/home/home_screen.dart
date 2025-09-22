@@ -5,10 +5,11 @@ import 'package:vayudrishti/core/constants/app_strings.dart';
 import 'package:vayudrishti/providers/air_quality_provider.dart';
 import 'package:vayudrishti/providers/location_provider.dart';
 import 'package:vayudrishti/providers/auth_provider.dart';
+import 'package:vayudrishti/core/backend_connection_service.dart';
 import 'package:vayudrishti/widgets/aqi_card.dart';
 import 'package:vayudrishti/widgets/pollutant_card.dart';
 import 'package:vayudrishti/widgets/health_advisory_card.dart';
-import 'package:vayudrishti/screens/notifications/notifications_screen.dart';
+import 'package:vayudrishti/screens/profile/notifications/notifications_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -86,6 +87,8 @@ class _HomeScreenState extends State<HomeScreen> {
               sliver: SliverList(
                 delegate: SliverChildListDelegate([
                   _buildWelcomeSection(),
+                  const SizedBox(height: 16),
+                  _buildConnectionStatusSection(),
                   const SizedBox(height: 20),
                   _buildMainAQICard(),
                   const SizedBox(height: 20),
@@ -105,8 +108,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildAppBar() {
-    return Consumer<LocationProvider>(
-      builder: (context, locationProvider, child) {
+    return Consumer2<LocationProvider, BackendConnectionService>(
+      builder: (context, locationProvider, connectionService, child) {
         return SliverAppBar(
           expandedHeight: 120,
           floating: false,
@@ -122,13 +125,23 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  AppStrings.appName,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  children: [
+                    const Text(
+                      AppStrings.appName,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Icon(
+                      connectionService.getConnectionStatusIcon(),
+                      color: connectionService.getConnectionStatusColor(),
+                      size: 16,
+                    ),
+                  ],
                 ),
                 Text(
                   locationProvider.currentAddress ?? 'Getting location...',
@@ -161,6 +174,78 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ],
+        );
+      },
+    );
+  }
+
+  Widget _buildConnectionStatusSection() {
+    return Consumer<BackendConnectionService>(
+      builder: (context, connectionService, child) {
+        // Only show if there are connection issues
+        if (connectionService.hasAnyConnection &&
+            connectionService.errorMessage == null) {
+          return const SizedBox.shrink();
+        }
+
+        return Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: connectionService.hasAnyConnection
+                ? Colors.orange.withValues(alpha: 0.1)
+                : Colors.red.withValues(alpha: 0.1),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: connectionService.hasAnyConnection
+                  ? Colors.orange.withValues(alpha: 0.3)
+                  : Colors.red.withValues(alpha: 0.3),
+            ),
+          ),
+          child: Row(
+            children: [
+              Icon(
+                connectionService.getConnectionStatusIcon(),
+                color: connectionService.getConnectionStatusColor(),
+                size: 20,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      connectionService.getConnectionStatusSummary(),
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: connectionService.getConnectionStatusColor(),
+                      ),
+                    ),
+                    if (connectionService.errorMessage != null)
+                      Text(
+                        connectionService.errorMessage!,
+                        style: const TextStyle(
+                          fontSize: 10,
+                          color: AppColors.textSecondary,
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              if (!connectionService.hasAnyConnection)
+                TextButton(
+                  onPressed: () => connectionService.retryConnections(),
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
+                    minimumSize: const Size(0, 0),
+                  ),
+                  child: const Text('Retry', style: TextStyle(fontSize: 12)),
+                ),
+            ],
+          ),
         );
       },
     );

@@ -4,12 +4,17 @@ import 'package:geolocator/geolocator.dart';
 import 'package:vayudrishti/core/constants/app_colors.dart';
 import 'package:vayudrishti/providers/location_provider.dart';
 import 'package:vayudrishti/providers/air_quality_provider.dart';
+import 'package:vayudrishti/core/backend_connection_service.dart';
+import 'package:vayudrishti/models/models.dart';
 
 class MapLocation {
   final String name;
   final double latitude;
   final double longitude;
   final int aqi;
+  final String category;
+  final Map<String, double> pollutants;
+  final DateTime timestamp;
   double distance;
 
   MapLocation({
@@ -17,8 +22,25 @@ class MapLocation {
     required this.latitude,
     required this.longitude,
     required this.aqi,
+    required this.category,
+    required this.pollutants,
+    required this.timestamp,
     required this.distance,
   });
+
+  // Factory method to create from LatestAqi model
+  factory MapLocation.fromLatestAqi(LatestAqi aqiData, double distance) {
+    return MapLocation(
+      name: aqiData.stationName,
+      latitude: aqiData.lat,
+      longitude: aqiData.lon,
+      aqi: aqiData.aqi,
+      category: aqiData.aqiCategory,
+      pollutants: aqiData.pollutantsMap,
+      timestamp: aqiData.timestamp,
+      distance: distance,
+    );
+  }
 }
 
 class MapGridPainter extends CustomPainter {
@@ -63,6 +85,7 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
   late Animation<double> _locationPulseAnimation;
   bool _isLocationLoading = false;
   List<MapLocation> _nearbyLocations = [];
+  bool _isLoadingNearbyData = false;
 
   @override
   void initState() {
@@ -98,6 +121,111 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
   }
 
   void _loadNearbyLocations() {
+    setState(() {
+      _isLoadingNearbyData = true;
+    });
+
+    // Try to load real data from backend first
+    _loadNearbyLocationsFromBackend()
+        .then((_) {
+          setState(() {
+            _isLoadingNearbyData = false;
+          });
+        })
+        .catchError((_) {
+          // Fallback to mock data if backend fails
+          _loadMockNearbyLocations();
+          setState(() {
+            _isLoadingNearbyData = false;
+          });
+        });
+  }
+
+  Future<void> _loadNearbyLocationsFromBackend() async {
+    final locationProvider = Provider.of<LocationProvider>(
+      context,
+      listen: false,
+    );
+
+    if (locationProvider.latitude == null ||
+        locationProvider.longitude == null) {
+      // If no location, use mock data
+      _loadMockNearbyLocations();
+      return;
+    }
+
+    try {
+      final airQualityProvider = Provider.of<AirQualityProvider>(
+        context,
+        listen: false,
+      );
+
+      // Use the provider to fetch data which will use the API client
+      final success = await airQualityProvider.fetchCurrentAQI(
+        locationProvider.latitude!,
+        locationProvider.longitude!,
+      );
+
+      if (success && airQualityProvider.currentAQI != null) {
+        // Create some mock nearby locations based on the real data
+        final baseLocation = airQualityProvider.currentAQI!;
+        _nearbyLocations = _generateNearbyLocationsFromReal(baseLocation);
+      } else {
+        _loadMockNearbyLocations();
+      }
+    } catch (e) {
+      // Fallback to mock data
+      _loadMockNearbyLocations();
+    }
+  }
+
+  List<MapLocation> _generateNearbyLocationsFromReal(AirQualityData baseData) {
+    final baseLatModifications = [-0.01, 0.005, -0.008, 0.012, 0.003];
+    final baseLonModifications = [0.008, -0.006, 0.010, -0.004, 0.007];
+    final aqiModifications = [-20, 15, -35, 25, -10];
+    final stationNames = [
+      'Central Station',
+      'Industrial Area',
+      'Residential Zone',
+      'Commercial District',
+      'Green Belt Area',
+    ];
+
+    final nearbyLocations = <MapLocation>[];
+
+    for (int i = 0; i < 5; i++) {
+      final modifiedAqi = (baseData.aqi + aqiModifications[i]).clamp(0, 500);
+      final lat = baseData.latitude + baseLatModifications[i];
+      final lon = baseData.longitude + baseLonModifications[i];
+
+      // Calculate distance
+      final distance =
+          Geolocator.distanceBetween(
+            baseData.latitude,
+            baseData.longitude,
+            lat,
+            lon,
+          ) /
+          1000;
+
+      nearbyLocations.add(
+        MapLocation(
+          name: stationNames[i],
+          latitude: lat,
+          longitude: lon,
+          aqi: modifiedAqi,
+          category: _getAQICategory(modifiedAqi),
+          pollutants: _generatePollutantsForAqi(modifiedAqi),
+          timestamp: DateTime.now().subtract(Duration(minutes: i * 5)),
+          distance: distance,
+        ),
+      );
+    }
+
+    return nearbyLocations;
+  }
+
+  void _loadMockNearbyLocations() {
     // Mock nearby locations with different AQI values
     _nearbyLocations = [
       MapLocation(
@@ -105,6 +233,9 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
         latitude: 28.6139,
         longitude: 77.2090,
         aqi: 165,
+        category: 'Poor',
+        pollutants: _generatePollutantsForAqi(165),
+        timestamp: DateTime.now().subtract(const Duration(minutes: 5)),
         distance: 2.5,
       ),
       MapLocation(
@@ -112,6 +243,9 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
         latitude: 28.6300,
         longitude: 77.2200,
         aqi: 245,
+        category: 'Very Poor',
+        pollutants: _generatePollutantsForAqi(245),
+        timestamp: DateTime.now().subtract(const Duration(minutes: 10)),
         distance: 5.2,
       ),
       MapLocation(
@@ -119,6 +253,9 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
         latitude: 28.6000,
         longitude: 77.1900,
         aqi: 85,
+        category: 'Fair',
+        pollutants: _generatePollutantsForAqi(85),
+        timestamp: DateTime.now().subtract(const Duration(minutes: 15)),
         distance: 3.8,
       ),
       MapLocation(
@@ -126,6 +263,9 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
         latitude: 28.5665,
         longitude: 77.1031,
         aqi: 120,
+        category: 'Moderate',
+        pollutants: _generatePollutantsForAqi(120),
+        timestamp: DateTime.now().subtract(const Duration(minutes: 20)),
         distance: 15.6,
       ),
       MapLocation(
@@ -133,9 +273,25 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
         latitude: 28.6450,
         longitude: 77.2100,
         aqi: 95,
+        category: 'Fair',
+        pollutants: _generatePollutantsForAqi(95),
+        timestamp: DateTime.now().subtract(const Duration(minutes: 25)),
         distance: 7.2,
       ),
     ];
+  }
+
+  Map<String, double> _generatePollutantsForAqi(int aqi) {
+    // Generate realistic pollutant values based on AQI
+    final baseValue = aqi / 2.0;
+    return {
+      'PM2.5': baseValue,
+      'PM10': baseValue * 1.5,
+      'O3': baseValue * 0.8,
+      'NO2': baseValue * 0.6,
+      'SO2': baseValue * 0.4,
+      'CO': baseValue * 0.3,
+    };
   }
 
   Future<void> _getCurrentLocationWithPermission() async {
@@ -211,6 +367,18 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
         backgroundColor: AppColors.primaryColor,
         elevation: 0,
         actions: [
+          Consumer<BackendConnectionService>(
+            builder: (context, connectionService, child) {
+              return Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Icon(
+                  connectionService.getConnectionStatusIcon(),
+                  color: connectionService.getConnectionStatusColor(),
+                  size: 20,
+                ),
+              );
+            },
+          ),
           IconButton(
             icon: Icon(
               _showHeatmap ? Icons.layers : Icons.layers_outlined,
@@ -884,6 +1052,21 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
     );
   }
 
+  String _formatTimestamp(DateTime timestamp) {
+    final now = DateTime.now();
+    final difference = now.difference(timestamp);
+
+    if (difference.inMinutes < 1) {
+      return 'Just now';
+    } else if (difference.inMinutes < 60) {
+      return '${difference.inMinutes}m ago';
+    } else if (difference.inHours < 24) {
+      return '${difference.inHours}h ago';
+    } else {
+      return '${difference.inDays}d ago';
+    }
+  }
+
   void _showLocationDetails(MapLocation location) {
     showDialog(
       context: context,
@@ -1002,7 +1185,86 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 16),
+
+                // Pollutants data
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: AppColors.surfaceColor,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Key Pollutants',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.textPrimary,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 4,
+                        children: location.pollutants.entries
+                            .take(3) // Show top 3 pollutants
+                            .map(
+                              (entry) => Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 4,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: aqiColor.withValues(alpha: 0.1),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Text(
+                                  '${entry.key}: ${entry.value.toStringAsFixed(1)}',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    color: aqiColor,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 12),
+
+                // Timestamp
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: AppColors.surfaceColor,
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.schedule,
+                        size: 14,
+                        color: AppColors.textSecondary,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        'Updated: ${_formatTimestamp(location.timestamp)}',
+                        style: const TextStyle(
+                          fontSize: 11,
+                          color: AppColors.textSecondary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
 
                 // Coordinates info
                 Container(

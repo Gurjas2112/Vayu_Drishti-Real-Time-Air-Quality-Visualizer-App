@@ -4,6 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:vayudrishti/core/constants/app_colors.dart';
 import 'package:vayudrishti/providers/air_quality_provider.dart';
 import 'package:vayudrishti/providers/location_provider.dart';
+import 'package:vayudrishti/core/backend_connection_service.dart';
 import 'package:intl/intl.dart';
 
 class ForecastScreen extends StatefulWidget {
@@ -97,6 +98,18 @@ class _ForecastScreenState extends State<ForecastScreen>
         backgroundColor: AppColors.primaryColor,
         elevation: 0,
         actions: [
+          Consumer<BackendConnectionService>(
+            builder: (context, connectionService, child) {
+              return Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Icon(
+                  connectionService.getConnectionStatusIcon(),
+                  color: connectionService.getConnectionStatusColor(),
+                  size: 20,
+                ),
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.refresh, color: Colors.white),
             onPressed: _loadForecastData,
@@ -108,6 +121,9 @@ class _ForecastScreenState extends State<ForecastScreen>
         color: AppColors.primaryColor,
         child: CustomScrollView(
           slivers: [
+            // Connection Status Banner
+            SliverToBoxAdapter(child: _buildConnectionStatusBanner()),
+
             // Timeframe Selector
             SliverToBoxAdapter(child: _buildTimeframeSelector()),
 
@@ -125,6 +141,79 @@ class _ForecastScreenState extends State<ForecastScreen>
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildConnectionStatusBanner() {
+    return Consumer<BackendConnectionService>(
+      builder: (context, connectionService, child) {
+        // Only show if there are connection issues
+        if (connectionService.hasAnyConnection &&
+            connectionService.errorMessage == null) {
+          return const SizedBox.shrink();
+        }
+
+        return Container(
+          margin: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: connectionService.hasAnyConnection
+                ? Colors.orange.withValues(alpha: 0.1)
+                : Colors.red.withValues(alpha: 0.1),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: connectionService.hasAnyConnection
+                  ? Colors.orange.withValues(alpha: 0.3)
+                  : Colors.red.withValues(alpha: 0.3),
+            ),
+          ),
+          child: Row(
+            children: [
+              Icon(
+                connectionService.getConnectionStatusIcon(),
+                color: connectionService.getConnectionStatusColor(),
+                size: 20,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      connectionService.getConnectionStatusSummary(),
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: connectionService.getConnectionStatusColor(),
+                      ),
+                    ),
+                    if (connectionService.errorMessage != null)
+                      Text(
+                        connectionService.errorMessage!,
+                        style: const TextStyle(
+                          fontSize: 10,
+                          color: AppColors.textSecondary,
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              if (!connectionService.hasAnyConnection)
+                TextButton(
+                  onPressed: () => connectionService.retryConnections(),
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
+                    minimumSize: const Size(0, 0),
+                  ),
+                  child: const Text('Retry', style: TextStyle(fontSize: 12)),
+                ),
+            ],
+          ),
+        );
+      },
     );
   }
 
@@ -376,6 +465,32 @@ class _ForecastScreenState extends State<ForecastScreen>
       spots.add(FlSpot(i.toDouble(), value * animationValue));
     }
 
+    // If no data, show empty chart message
+    if (spots.isEmpty) {
+      return const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.cloud_off_outlined,
+              size: 48,
+              color: AppColors.textSecondary,
+            ),
+            SizedBox(height: 12),
+            Text(
+              'No forecast data available',
+              style: TextStyle(fontSize: 16, color: AppColors.textSecondary),
+            ),
+            SizedBox(height: 8),
+            Text(
+              'Pull to refresh or check your connection',
+              style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+            ),
+          ],
+        ),
+      );
+    }
+
     return LineChart(
       LineChartData(
         gridData: FlGridData(
@@ -569,8 +684,79 @@ class _ForecastScreenState extends State<ForecastScreen>
           const SizedBox(height: 16),
           Consumer<AirQualityProvider>(
             builder: (context, airQualityProvider, child) {
+              if (airQualityProvider.isLoading) {
+                return const Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(20),
+                    child: CircularProgressIndicator(
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
+                );
+              }
+
+              if (airQualityProvider.errorMessage != null) {
+                return Container(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      const Icon(
+                        Icons.error_outline,
+                        color: AppColors.errorColor,
+                        size: 32,
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        airQualityProvider.errorMessage!,
+                        style: const TextStyle(
+                          color: AppColors.errorColor,
+                          fontSize: 14,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: _loadForecastData,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primaryColor,
+                          foregroundColor: Colors.white,
+                        ),
+                        child: const Text('Retry'),
+                      ),
+                    ],
+                  ),
+                );
+              }
+
               if (airQualityProvider.forecastData.isEmpty) {
-                return const Center(child: Text('No forecast data available'));
+                return Container(
+                  padding: const EdgeInsets.all(20),
+                  child: const Column(
+                    children: [
+                      Icon(
+                        Icons.cloud_off_outlined,
+                        color: AppColors.textSecondary,
+                        size: 32,
+                      ),
+                      SizedBox(height: 12),
+                      Text(
+                        'No forecast data available',
+                        style: TextStyle(
+                          color: AppColors.textSecondary,
+                          fontSize: 14,
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        'Pull to refresh to try again',
+                        style: TextStyle(
+                          color: AppColors.textSecondary,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
               }
 
               return Column(

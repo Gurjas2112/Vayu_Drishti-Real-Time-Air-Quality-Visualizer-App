@@ -4,6 +4,7 @@ import 'package:vayudrishti/core/constants/app_colors.dart';
 import 'package:vayudrishti/core/constants/app_strings.dart';
 import 'package:vayudrishti/core/routes/app_routes.dart';
 import 'package:vayudrishti/providers/auth_provider.dart';
+import 'package:vayudrishti/core/backend_connection_service.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -27,6 +28,9 @@ class _SplashScreenState extends State<SplashScreen>
 
   final List<String> _loadingTexts = [
     AppStrings.initializingConnection,
+    'Connecting to backend services...',
+    'Checking API connectivity...',
+    'Setting up real-time updates...',
     AppStrings.connectingToServers,
     AppStrings.loadingData,
   ];
@@ -85,19 +89,69 @@ class _SplashScreenState extends State<SplashScreen>
     _textController.forward();
     _progressController.forward();
 
-    // Change loading text periodically
+    // Change loading text periodically while initializing backend
     _changeLoadingText();
 
+    // Initialize backend services for authenticated users
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    if (authProvider.isAuthenticated) {
+      await _initializeBackendServices();
+    }
+
     // Wait for animations to complete
-    await Future.delayed(const Duration(milliseconds: 4000));
+    await Future.delayed(const Duration(milliseconds: 2000));
 
     // Navigate to appropriate screen
     _navigateToNextScreen();
   }
 
-  void _changeLoadingText() async {
-    for (int i = 0; i < _loadingTexts.length; i++) {
+  Future<void> _initializeBackendServices() async {
+    try {
+      if (!mounted) return;
+
+      final backendService = Provider.of<BackendConnectionService>(
+        context,
+        listen: false,
+      );
+
+      // Update text to show backend initialization
+      setState(() {
+        _currentText = 'Initializing backend services...';
+      });
+
+      // Initialize backend connections
+      await backendService.initialize();
+
+      if (!mounted) return;
+
+      // Update text based on connection status
+      if (backendService.hasAnyConnection) {
+        setState(() {
+          _currentText = 'Backend services ready!';
+        });
+      } else {
+        setState(() {
+          _currentText = 'Running in offline mode';
+        });
+      }
+
+      // Wait a moment to show the status
       await Future.delayed(const Duration(milliseconds: 1000));
+    } catch (e) {
+      // Handle any errors gracefully
+      if (mounted) {
+        setState(() {
+          _currentText = 'Starting in offline mode...';
+        });
+        await Future.delayed(const Duration(milliseconds: 1000));
+      }
+    }
+  }
+
+  void _changeLoadingText() async {
+    // Show initial loading texts faster
+    for (int i = 0; i < 3 && i < _loadingTexts.length; i++) {
+      await Future.delayed(const Duration(milliseconds: 800));
 
       if (mounted) {
         await _textController.reverse();

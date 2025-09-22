@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
+import 'package:vayudrishti/core/api_aqi.dart';
+import 'package:vayudrishti/models/models.dart';
+import 'package:dio/dio.dart';
 
+// Legacy data classes for backward compatibility
 class AirQualityData {
   final int aqi;
   final String category;
@@ -18,6 +23,18 @@ class AirQualityData {
     required this.latitude,
     required this.longitude,
   });
+
+  factory AirQualityData.fromLatestAqi(LatestAqi latestAqi) {
+    return AirQualityData(
+      aqi: latestAqi.aqi,
+      category: latestAqi.aqiCategory,
+      pollutants: latestAqi.pollutantsMap,
+      timestamp: latestAqi.timestamp,
+      location: latestAqi.stationName,
+      latitude: latestAqi.lat,
+      longitude: latestAqi.lon,
+    );
+  }
 
   factory AirQualityData.fromJson(Map<String, dynamic> json) {
     return AirQualityData(
@@ -60,20 +77,44 @@ class ForecastData {
     required this.category,
     required this.pollutants,
   });
+
+  factory ForecastData.fromForecastEntry(ForecastEntry entry) {
+    final pollutantsMap = <String, double>{};
+    for (final pollutant in entry.pollutants) {
+      pollutantsMap[pollutant.name] = pollutant.value;
+    }
+
+    return ForecastData(
+      dateTime: entry.timestamp,
+      aqi: entry.aqi,
+      category: entry.aqiCategory,
+      pollutants: pollutantsMap,
+    );
+  }
 }
 
 class AirQualityProvider extends ChangeNotifier {
+  final AqiApiClient _apiClient = AqiApiClient.instance;
+  final Logger _logger = Logger();
+
   AirQualityData? _currentAQI;
   List<ForecastData> _forecastData = [];
   bool _isLoading = false;
   String? _errorMessage;
   DateTime? _lastUpdated;
+  LatestAqi? _latestAqiData;
+  List<ForecastEntry> _forecast = [];
+  HealthRecommendation? _healthRecommendation;
 
+  // Getters
   AirQualityData? get currentAQI => _currentAQI;
   List<ForecastData> get forecastData => _forecastData;
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
   DateTime? get lastUpdated => _lastUpdated;
+  LatestAqi? get latestAqiData => _latestAqiData;
+  List<ForecastEntry> get forecast => _forecast;
+  HealthRecommendation? get healthRecommendation => _healthRecommendation;
 
   void _setLoading(bool loading) {
     _isLoading = loading;
@@ -85,45 +126,167 @@ class AirQualityProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Fetch current air quality data
+  // Fetch current air quality data from backend
   Future<bool> fetchCurrentAQI(double latitude, double longitude) async {
     try {
       _setLoading(true);
       _setError(null);
 
-      // For now, use mock data since API key is not provided
-      await Future.delayed(const Duration(seconds: 2)); // Simulate API call
+      _logger.i('Fetching AQI data for lat: $latitude, lon: $longitude');
 
-      _currentAQI = _generateMockAQIData(latitude, longitude);
-      _lastUpdated = DateTime.now();
+      final response = await _apiClient.getLatestByLocation(
+        lat: latitude,
+        lon: longitude,
+        hours: 24,
+      );
 
+      if (response.statusCode == 200 && response.data != null) {
+        final aqiResponse = AqiResponse.fromJson(response.data);
+
+        // Update new model data
+        _latestAqiData = aqiResponse.latest;
+        _forecast = aqiResponse.forecast;
+        _healthRecommendation = aqiResponse.health;
+
+        // Update legacy model data for backward compatibility
+        _currentAQI = AirQualityData.fromLatestAqi(aqiResponse.latest);
+        _forecastData = aqiResponse.forecast
+            .map((entry) => ForecastData.fromForecastEntry(entry))
+            .toList();
+
+        _lastUpdated = DateTime.now();
+        _logger.i('Successfully fetched AQI data: ${aqiResponse.latest.aqi}');
+
+        _setLoading(false);
+        return true;
+      } else {
+        throw Exception('Invalid response format');
+      }
+    } on DioException catch (e) {
       _setLoading(false);
-      return true;
+      String errorMsg = 'Network error occurred';
+
+      if (e.type == DioExceptionType.connectionTimeout ||
+          e.type == DioExceptionType.receiveTimeout) {
+        errorMsg = 'Connection timeout. Please check your internet connection.';
+      } else if (e.type == DioExceptionType.connectionError) {
+        errorMsg = 'Unable to connect to server. Please try again later.';
+      } else if (e.response?.statusCode == 404) {
+        errorMsg = 'No air quality data available for this location.';
+      } else if (e.response?.statusCode == 500) {
+        errorMsg = 'Server error. Please try again later.';
+      }
+
+      _setError(errorMsg);
+      _logger.e('API Error: ${e.message}', error: e);
+
+      // Fallback to mock data if API fails
+      return await _fetchMockData(latitude, longitude);
     } catch (e) {
       _setLoading(false);
       _setError('Failed to fetch air quality data. Please try again.');
-      debugPrint('Error fetching AQI: $e');
-      return false;
+      _logger.e('Unexpected error: $e');
+
+      // Fallback to mock data if API fails
+      return await _fetchMockData(latitude, longitude);
     }
   }
 
-  // Fetch forecast data
+  // Fetch forecast data (already included in the main API call)
   Future<bool> fetchForecastData(double latitude, double longitude) async {
+    // Forecast data is already fetched with the main AQI call
+    if (_forecast.isNotEmpty) {
+      return true;
+    }
+    // If no forecast data, refetch everything
+    return await fetchCurrentAQI(latitude, longitude);
+  }
+
+  // Fetch historical data for a specific station
+  Future<List<HistoricalAqiEntry>> fetchHistoricalData({
+    required String stationId,
+    required DateTime from,
+    required DateTime to,
+  }) async {
+    try {
+      _logger.i('Fetching historical data for station: $stationId');
+
+      final response = await _apiClient.getHistorical(
+        stationId: stationId,
+        from: from,
+        to: to,
+      );
+
+      if (response.statusCode == 200 && response.data != null) {
+        final List<dynamic> data = response.data['data'] as List<dynamic>;
+        return data
+            .map(
+              (entry) =>
+                  HistoricalAqiEntry.fromJson(entry as Map<String, dynamic>),
+            )
+            .toList();
+      } else {
+        throw Exception('Invalid response format');
+      }
+    } on DioException catch (e) {
+      _logger.e('Error fetching historical data: ${e.message}');
+      throw Exception('Failed to fetch historical data');
+    }
+  }
+
+  // Fetch data for a specific station
+  Future<bool> fetchStationData(String stationId) async {
     try {
       _setLoading(true);
       _setError(null);
 
-      // For now, use mock data
+      _logger.i('Fetching data for station: $stationId');
+
+      final response = await _apiClient.getByStation(stationId);
+
+      if (response.statusCode == 200 && response.data != null) {
+        final aqiResponse = AqiResponse.fromJson(response.data);
+
+        // Update new model data
+        _latestAqiData = aqiResponse.latest;
+        _forecast = aqiResponse.forecast;
+        _healthRecommendation = aqiResponse.health;
+
+        // Update legacy model data for backward compatibility
+        _currentAQI = AirQualityData.fromLatestAqi(aqiResponse.latest);
+        _forecastData = aqiResponse.forecast
+            .map((entry) => ForecastData.fromForecastEntry(entry))
+            .toList();
+
+        _lastUpdated = DateTime.now();
+        _logger.i('Successfully fetched station data');
+
+        _setLoading(false);
+        return true;
+      } else {
+        throw Exception('Invalid response format');
+      }
+    } on DioException catch (e) {
+      _setLoading(false);
+      _setError('Failed to fetch station data. Please try again.');
+      _logger.e('Error fetching station data: ${e.message}');
+      return false;
+    }
+  }
+
+  // Fallback method for mock data when API is unavailable
+  Future<bool> _fetchMockData(double latitude, double longitude) async {
+    try {
+      _logger.w('Using mock data as fallback');
       await Future.delayed(const Duration(seconds: 1)); // Simulate API call
 
+      _currentAQI = _generateMockAQIData(latitude, longitude);
       _forecastData = _generateMockForecastData();
+      _lastUpdated = DateTime.now();
 
-      _setLoading(false);
       return true;
     } catch (e) {
-      _setLoading(false);
-      _setError('Failed to fetch forecast data. Please try again.');
-      debugPrint('Error fetching forecast: $e');
+      _logger.e('Error generating mock data: $e');
       return false;
     }
   }
@@ -145,7 +308,7 @@ class AirQualityProvider extends ChangeNotifier {
         'SO2': 5.0 + (random % 30), // 5-35 μg/m³
       },
       timestamp: DateTime.now(),
-      location: 'Current Location',
+      location: 'Mock Station (Offline)',
       latitude: latitude,
       longitude: longitude,
     );
@@ -193,6 +356,11 @@ class AirQualityProvider extends ChangeNotifier {
 
   // Get health advisory based on AQI
   String getHealthAdvisory(int aqi) {
+    if (_healthRecommendation != null) {
+      return _healthRecommendation!.description;
+    }
+
+    // Fallback logic
     if (aqi <= 50) {
       return 'Air quality is considered satisfactory. Ideal for all outdoor activities.';
     } else if (aqi <= 100) {
@@ -210,6 +378,11 @@ class AirQualityProvider extends ChangeNotifier {
 
   // Get recommendations based on AQI
   List<String> getRecommendations(int aqi) {
+    if (_healthRecommendation != null) {
+      return _healthRecommendation!.recommendations;
+    }
+
+    // Fallback logic
     if (aqi <= 50) {
       return [
         'Perfect for outdoor exercise',
@@ -247,6 +420,16 @@ class AirQualityProvider extends ChangeNotifier {
     }
   }
 
+  // Check if backend is available
+  Future<bool> checkBackendHealth() async {
+    try {
+      return await _apiClient.checkHealth();
+    } catch (e) {
+      _logger.e('Backend health check failed: $e');
+      return false;
+    }
+  }
+
   // Refresh data
   Future<bool> refreshData(double latitude, double longitude) async {
     final success = await fetchCurrentAQI(latitude, longitude);
@@ -269,6 +452,9 @@ class AirQualityProvider extends ChangeNotifier {
     _errorMessage = null;
     _isLoading = false;
     _lastUpdated = null;
+    _latestAqiData = null;
+    _forecast = [];
+    _healthRecommendation = null;
     notifyListeners();
   }
 }

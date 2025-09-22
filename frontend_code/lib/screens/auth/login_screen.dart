@@ -6,6 +6,7 @@ import 'package:vayudrishti/providers/auth_provider.dart';
 import 'package:vayudrishti/widgets/custom_button.dart';
 import 'package:vayudrishti/widgets/custom_text_field.dart';
 import 'package:vayudrishti/core/routes/app_routes.dart';
+import 'package:vayudrishti/core/backend_connection_service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -258,6 +259,36 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
       if (success && mounted) {
+        // Initialize backend connections after successful login
+        final backendService = Provider.of<BackendConnectionService>(
+          context,
+          listen: false,
+        );
+
+        // Show a brief loading indicator for backend initialization
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => const AlertDialog(
+            content: Row(
+              children: [
+                CircularProgressIndicator(),
+                SizedBox(width: 16),
+                Text('Connecting to backend services...'),
+              ],
+            ),
+          ),
+        );
+
+        // Initialize backend connections
+        await backendService.initialize();
+
+        if (!mounted) return;
+
+        // Close loading dialog
+        Navigator.pop(context);
+
+        // Navigate to main app
         Navigator.pushReplacementNamed(context, AppRoutes.mainNavigation);
       }
     }

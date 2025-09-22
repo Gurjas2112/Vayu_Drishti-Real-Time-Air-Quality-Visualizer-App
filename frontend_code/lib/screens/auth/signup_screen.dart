@@ -6,6 +6,7 @@ import 'package:vayudrishti/core/routes/app_routes.dart';
 import 'package:vayudrishti/providers/auth_provider.dart';
 import 'package:vayudrishti/widgets/custom_button.dart';
 import 'package:vayudrishti/widgets/custom_text_field.dart';
+import 'package:vayudrishti/core/backend_connection_service.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -44,6 +45,36 @@ class _SignupScreenState extends State<SignupScreen> {
     );
 
     if (success && mounted) {
+      // Initialize backend connections after successful signup
+      final backendService = Provider.of<BackendConnectionService>(
+        context,
+        listen: false,
+      );
+
+      // Show a brief loading indicator for backend initialization
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => const AlertDialog(
+          content: Row(
+            children: [
+              CircularProgressIndicator(),
+              SizedBox(width: 16),
+              Text('Setting up your account...'),
+            ],
+          ),
+        ),
+      );
+
+      // Initialize backend connections
+      await backendService.initialize();
+
+      if (!mounted) return;
+
+      // Close loading dialog
+      Navigator.pop(context);
+
+      // Navigate to main app
       Navigator.pushReplacementNamed(context, AppRoutes.mainNavigation);
     } else if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
