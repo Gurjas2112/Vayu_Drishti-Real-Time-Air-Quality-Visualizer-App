@@ -1,0 +1,23 @@
+
+# Virtual Environment
+ml_model/venv/
+
+# Python Cache
+ml_model/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.cache/
+
+# Large Model Files (>100MB GitHub limit)
+ml_model/saved_models/random_forest_model.pkl
+ml_model/aqi_web_scraper/rf_aqi_model_integrated.pkl
+ml_model/aqi_web_scraper/integrated_aqi_dataset_v2.csv
+ml_model/aqi_web_scraper/test_data.csv
+ml_model/aqi_web_scraper/integrated_aqi_dataset_v2_backup.csv
