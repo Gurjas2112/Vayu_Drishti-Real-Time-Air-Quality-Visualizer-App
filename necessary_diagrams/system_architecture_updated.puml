@@ -1,0 +1,137 @@
+@startuml Vayu_Drishti_System_Architecture
+!define RECTANGLE class
+
+skinparam backgroundColor white
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam rectangleBorderColor #2C3E50
+skinparam rectangleBackgroundColor #ECF0F1
+skinparam arrowColor #2980B9
+skinparam arrowThickness 2
+skinparam noteBorderColor #95A5A6
+skinparam noteBackgroundColor #FFFFFF
+
+title Vayu Drishti - System Architecture
+
+package "Data Sources" #FFFFFF {
+    rectangle "Satellite Data\nINSAT-3DR" as INSAT #B8CCE4
+    rectangle "Meteorological\nMERRA-2" as MERRA #B8CCE4
+    rectangle "Ground Stations\nCPCB" as CPCB #B8CCE4
+}
+
+note right of INSAT
+  6 Aerosol
+  Parameters
+end note
+
+note right of MERRA
+  8 Weather
+  Variables
+end note
+
+note right of CPCB
+  7 Pollutants
+  40 Stations
+end note
+
+rectangle "Data Processing\nETL Pipeline" as ETL #B8CCE4
+
+note right of ETL
+  **Data Processing**
+  • Validation & Cleaning
+  • Missing Value Handling
+  • Spatial-Temporal Matching
+  • Data Standardization
+end note
+
+rectangle "ML Pipeline\nFeature Engineering" as FE #B8CCE4
+
+note right of FE
+  **Feature Engineering**
+  • 33 Base Features
+  • 36 Engineered Features
+  • Lag Features (1-6h)
+  • Rolling Statistics
+  • Interaction Terms
+end note
+
+package "Machine Learning Models" #FFFFFF {
+    rectangle "Random Forest\nAQI Prediction" as RF #B8CCE4
+    rectangle "XGBoost\n1-6h Forecasting" as XGB #B8CCE4
+    rectangle "LSTM Network\n12-24h Forecasting" as LSTM #B8CCE4
+}
+
+note right of RF
+  **Random Forest**
+  • R² Score: 0.9994
+  • RMSE: 4.57
+  • Training: 8.3s
+  • Trees: 100
+end note
+
+note right of XGB
+  **XGBoost**
+  • Accuracy: 95-96%
+  • RMSE: 8.2
+  • Estimators: 200
+  • LR: 0.05
+end note
+
+note right of LSTM
+  **LSTM Network**
+  • Accuracy: 92-94%
+  • RMSE: 12.5
+  • Layers: 2 (128, 64)
+  • Dropout: 0.3
+end note
+
+rectangle "TensorFlow Lite\nModel Optimization" as TFL #B8CCE4
+
+note right of TFL
+  **Model Compression**
+  • Size: 45MB → 2.8MB
+  • Quantization: float32 → float16
+  • Inference: 8ms
+  • R² maintained: >0.999
+end note
+
+rectangle "Streamlit Interface" as UI #B8CCE4
+
+package "User Interface Components" #FFFFFF {
+    rectangle "Interactive Maps\nGeospatial Visualization" as Maps #B8CCE4
+    rectangle "Real-time Charts\nTime Series Plots" as Charts #B8CCE4
+    rectangle "Policy Simulator\nScenario Analysis" as Simulator #B8CCE4
+}
+
+note bottom of UI
+  **Web Interface**
+  • Dashboard - Real-time AQI
+  • Interactive Maps - 40 Stations
+  • Predictions & Analysis
+  • Feature Importance
+  • Model Performance
+  • Custom Prediction Tool
+end note
+
+' Data flow connections
+INSAT -down-> ETL : "6 Aerosol\nParameters"
+MERRA -down-> ETL : "8 Weather\nVariables"
+CPCB -down-> ETL : "7 Pollutants\n40 Stations"
+
+ETL -down-> FE : "Cleaned &\nIntegrated Data"
+
+FE -down-> RF : "69 Features"
+FE -down-> XGB : "69 Features"
+FE -down-> LSTM : "69 Features"
+
+RF -down-> TFL : "Model\nCompression"
+XGB -down-> TFL : "Model\nCompression"
+LSTM -down-> TFL : "Model\nCompression"
+
+TFL -down-> UI : "Optimized\nPredictions"
+
+UI -down-> Maps : "Location Data"
+UI -down-> Charts : "Time Series"
+UI -down-> Simulator : "Simulation\nParameters"
+
+@enduml

@@ -1,0 +1,108 @@
+@startuml Vayu_Drishti_System_Architecture
+
+!define RECTANGLE class
+!theme plain
+
+skinparam rectangle {
+    BackgroundColor LightSteelBlue
+    BorderColor Navy
+    FontSize 12
+    FontStyle bold
+}
+
+skinparam arrow {
+    Color Navy
+    Thickness 2
+}
+
+title Vayu Drishti - System Architecture
+
+' Data Sources Layer
+package "Data Sources" {
+    rectangle "Satellite Data\nINSAT-3DR" as SAT
+    rectangle "Meteorological\nMERRA-2" as METEO
+    rectangle "Ground Stations\nCPCB" as GROUND
+}
+
+' Data Processing Layer
+rectangle "Data Processing\nETL Pipeline" as PROCESS
+
+' ML Pipeline Layer
+rectangle "ML Pipeline\nFeature Engineering" as ML
+
+' Model Layer
+package "Machine Learning Models" {
+    rectangle "Random Forest\nAQI Prediction" as RF
+    rectangle "LSTM Networks\nSequential Forecasting" as LSTM
+    rectangle "Q-Learning\nOptimization" as QL
+}
+
+' API Layer
+rectangle "Predictions API\nFastAPI/REST" as API
+
+' Frontend Layer
+rectangle "React Frontend\nStreamlit Interface" as FRONTEND
+
+' UI Components
+package "User Interface Components" {
+    rectangle "Interactive Maps\nGeospatial Visualization" as MAPS
+    rectangle "Real-time Charts\nTime Series Plots" as CHARTS
+    rectangle "Policy Simulator\nScenario Analysis" as POLICY
+}
+
+' Data Flow
+SAT --> PROCESS : "6 Aerosol\nParameters"
+METEO --> PROCESS : "8 Weather\nVariables"
+GROUND --> PROCESS : "7 Pollutants\n40 Stations"
+
+PROCESS --> ML : "Cleaned &\nIntegrated Data"
+
+ML --> RF : "69 Features"
+ML --> LSTM : "69 Features"
+ML --> QL : "69 Features"
+
+RF --> API : "AQI\nPredictions"
+LSTM --> API : "24h\nForecasts"
+QL --> API : "Optimized\nRecommendations"
+
+API --> FRONTEND : "JSON\nResponse"
+
+FRONTEND --> MAPS : "Location Data"
+FRONTEND --> CHARTS : "Time Series"
+FRONTEND --> POLICY : "Simulation\nParameters"
+
+' Notes
+note right of PROCESS
+  **Data Processing**
+  • Validation & Cleaning
+  • Missing Value Handling
+  • Spatial-Temporal Matching
+  • Unit Standardization
+end note
+
+note right of ML
+  **Feature Engineering**
+  • 33 Base Features
+  • 36 Engineered Features
+  • Lag Features (1-6h)
+  • Rolling Statistics
+  • Interaction Terms
+end note
+
+note right of API
+  **Performance Metrics**
+  • Response Time: <200ms
+  • Uptime: 99.95%
+  • Cache Hit Rate: 85%
+  • R² Score: 0.9994
+end note
+
+note bottom of FRONTEND
+  **Web Interface**
+  • 6 Interactive Pages
+  • Real-time Updates
+  • Responsive Design
+  • Multi-language Support
+end note
+
+@enduml
