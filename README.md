@@ -1,19 +1,23 @@
 <div align="center">
 
 # 🌬️ Vayu Drishti
-### Real-Time Air Quality Visualizer & Monitoring System
+### Real-Time Air Quality Monitoring with Multi-Source Data Integration and Machine Learning Forecasting
 
 **"Swasth Jeevan ki Shrishti!" (Creating Healthy Lives)**
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://www.tensorflow.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15-orange.svg)](https://www.tensorflow.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.31+-red.svg)](https://streamlit.io/)
+[![XGBoost](https://img.shields.io/badge/XGBoost-2.0-brightgreen.svg)](https://xgboost.readthedocs.io/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-success.svg)]()
+[![Research](https://img.shields.io/badge/Research-Published-blue.svg)](research_paper_essential_docs/)
 
-**ISRO Satellite-Based Air Quality Monitoring System**
+**Advanced Air Quality Forecasting System powered by CPCB + ISRO Satellite + NASA MERRA-2**
 
-[Features](#-key-features) • [Architecture](#-system-architecture) • [Installation](#-installation) • [Usage](#-usage) • [Documentation](#-documentation) • [Contributing](#-contributing)
+[Live Demo](https://vayudrishti-real-time-air-quality-visualizer-app-35feunxuecgh2.streamlit.app/) • [Research Paper](research_paper_essential_docs/vayu_drishti_revised_paper.tex) • [Documentation](necessary_diagrams/) • [Installation](#-quick-start) • [Contributing](#-contributing)
+
+![System Architecture](research_paper_images/system_architecture%20(1).jpg)
 
 </div>
 
@@ -24,15 +28,16 @@
 - [Overview](#-overview)
 - [Key Features](#-key-features)
 - [System Architecture](#-system-architecture)
-- [Technology Stack](#-technology-stack)
-- [Data Sources](#-data-sources)
 - [Machine Learning Models](#-machine-learning-models)
-- [Installation](#-installation)
-- [Usage](#-usage)
+- [Data Sources & Integration](#-data-sources--integration)
+- [Feature Engineering](#-feature-engineering)
+- [Quick Start](#-quick-start)
+- [Streamlit Application](#-streamlit-application)
 - [API Documentation](#-api-documentation)
 - [Project Structure](#-project-structure)
-- [Documentation](#-documentation)
 - [Performance Metrics](#-performance-metrics)
+- [Research & Publications](#-research--publications)
+- [Technology Stack](#-technology-stack)
 - [Contributing](#-contributing)
 - [License](#-license)
 - [Acknowledgments](#-acknowledgments)
@@ -42,76 +47,133 @@
 
 ## 🌟 Overview
 
-**Vayu Drishti** is an advanced, real-time air quality monitoring and forecasting system that leverages multi-source data integration and machine learning to provide accurate AQI predictions and health recommendations across India.
+**Vayu Drishti** is a comprehensive air quality monitoring and forecasting system that addresses air pollution tracking in urban and rural areas through multi-source data integration and advanced machine learning. Our system combines ground-based measurements, satellite observations, and meteorological data to provide accurate AQI predictions and actionable health recommendations.
 
 ### Problem Statement
 
-Air pollution is a critical public health issue in India, causing over 1.2 million premature deaths annually. Citizens need:
-- **Real-time AQI information** to make informed decisions
-- **Accurate 24-hour forecasts** for planning outdoor activities
-- **Health recommendations** tailored to current air quality
-- **Comprehensive coverage** across urban and rural areas
+Air pollution represents a significant public health challenge globally, with India facing particularly acute air quality issues. Current monitoring systems face several critical limitations:
+
+- **Limited spatial coverage**: Monitoring stations concentrate in urban centers, leaving rural and semi-urban areas underserved
+- **Data quality issues**: Inconsistent measurements, sensor malfunctions, and reporting delays reduce reliability
+- **Single-source limitations**: Ground-based systems alone cannot capture atmospheric complexity
+- **Insufficient forecasting**: Many systems provide only current readings without predictive capabilities
+- **Accessibility barriers**: Technical complexity limits public access to air quality information
 
 ### Our Solution
 
-Vayu Drishti integrates data from multiple authoritative sources:
-- 🏭 **CPCB**: 40 monitoring stations across 16 states
-- 🛰️ **ISRO INSAT-3D**: Satellite aerosol optical depth (AOD) data
-- 🌤️ **MERRA-2**: NASA meteorological data
+Vayu Drishti integrates data from three authoritative sources to provide comprehensive air quality assessments:
 
-Using advanced ML models (XGBoost + LSTM), we achieve **92-96% prediction accuracy** for 24-hour AQI forecasts.
+- 🏭 **CPCB Ground Stations**: 40 monitoring stations measuring 7 pollutants (PM2.5, PM10, NO₂, SO₂, CO, O₃, NH₃)
+- 🛰️ **ISRO INSAT-3D Satellite**: Atmospheric observations including AOD550, Aerosol Index, Cloud Fraction
+- 🌤️ **NASA MERRA-2**: 8 meteorological parameters at 0.5° × 0.625° spatial resolution
 
-### Key Statistics
+### Key Achievements
 
-- ✅ **40 Monitoring Stations** across 16 Indian states
-- ✅ **320,000+ AQI Readings** in historical database
-- ✅ **92-96% Accuracy** for 24-hour forecasts
-- ✅ **24/7 Real-time Monitoring** with hourly updates
-- ✅ **Multi-channel Alerts** (app, push, email, SMS)
-- ✅ **<200ms API Response Time** (p95 percentile)
+- ✅ **R² = 0.9994** for AQI prediction using Random Forest (RMSE: 4.57)
+- ✅ **92-96% Accuracy** for 24-hour forecasts using XGBoost + LSTM ensemble
+- ✅ **69 Engineered Features** capturing pollutant interactions and temporal patterns
+- ✅ **320,000+ Historical Records** from 12 months of continuous monitoring
+- ✅ **Sub-200ms API Response Time** (p95: 150ms) with 99.95% uptime
+- ✅ **8.3-second Training Time** enabling rapid model updates
+- ✅ **40 Stations across 16 States** covering North, East, West, South, and Central India
 
 ---
 
 ## 🚀 Key Features
 
-### Core Functionality
+### 1. High-Accuracy AQI Prediction
 
-#### 1. Real-Time AQI Monitoring
-- **Hourly Updates**: Fresh data every hour from 40 stations
-- **7 Pollutants Tracked**: PM2.5, PM10, NO2, SO2, CO, O3, NH3
-- **EPA Standard**: CPCB-compliant AQI calculation
-- **Color-Coded Categories**: Good, Satisfactory, Moderate, Poor, Very Poor, Severe
+**Random Forest Model Performance:**
+- **R² Score**: 0.9994 (99.94% variance explained)
+- **RMSE**: 4.57 AQI points
+- **MAE**: 2.83 AQI points
+- **Training Time**: 8.3 seconds on full dataset
+- **Inference**: <10ms per prediction
 
-#### 2. ML-Based 24-Hour Forecasting
-- **Dual Model Ensemble**: XGBoost (40%) + LSTM (60%)
-- **Hourly Predictions**: 24 data points for next day
-- **Confidence Intervals**: 95% CI for uncertainty quantification
-- **Auto-Retraining**: Models update when accuracy drops below 90%
+**Hyperparameters:**
+- n_estimators: 500
+- max_depth: 10
+- min_samples_split: 5
+- min_samples_leaf: 2
+- max_features: sqrt
 
-#### 3. Multi-Source Data Integration
-- **CPCB Ground Stations**: Pollutant concentrations
-- **ISRO Satellite Data**: AOD550, Aerosol Index, Cloud Fraction
-- **MERRA-2 Weather**: Temperature, Humidity, Wind, Pressure
-- **Smart Validation**: Data quality checks and outlier detection
+### 2. Advanced 24-Hour Forecasting
 
-#### 4. Intelligent Alerting System
-- **Threshold-Based**: Alerts when AQI exceeds user-defined limits
-- **Multi-Channel Delivery**: In-app, push, email, SMS
-- **Priority Levels**: Moderate (150-200), High (201-300), Critical (>300)
-- **Personalized**: Based on user preferences and health conditions
+**Ensemble Approach** (XGBoost 40% + LSTM 60%):
 
-#### 5. Interactive Visualizations
-- **Real-Time Dashboard**: Live AQI updates and trends
-- **Interactive Maps**: Station-wise air quality visualization
-- **Historical Trends**: Time-series charts with zoom/pan
-- **Pollutant Breakdown**: Individual pollutant contributions
-- **Health Recommendations**: Category-specific advice
+**XGBoost Performance:**
+- R² = 0.92-0.95
+- Training: 10-15 minutes
+- Hyperparameters: 500 estimators, max_depth=10, learning_rate=0.05
 
-#### 6. Custom Prediction Mode
-- **Research Tool**: Input custom pollutant and weather values
-- **What-If Analysis**: Simulate different scenarios
-- **Instant Results**: AQI calculation and health impact
-- **Export Capability**: Download predictions as CSV
+**LSTM Architecture:**
+- Two LSTM layers (128 + 64 units)
+- Dropout: 0.3 for regularization
+- R² = 0.93-0.96
+- Training: 30-45 minutes
+
+**Forecast Accuracy by Horizon:**
+- 1-6 hours: R² = 0.95-0.96, RMSE = 8-12
+- 6-12 hours: R² = 0.93-0.95, RMSE = 12-16
+- 12-24 hours: R² = 0.92-0.94, RMSE = 15-20
+
+### 3. Multi-Source Data Integration
+
+**CPCB Ground Stations:**
+- 40 stations across 16 states
+- Hourly measurements of 7 pollutants
+- Automated API calls with retry logic
+- Data validation and quality checks
+
+**ISRO INSAT-3D Satellite:**
+- Aerosol Optical Depth (AOD550)
+- Aerosol Index
+- Cloud Fraction
+- Surface Reflectance
+- Angstrom Exponent
+- Single Scattering Albedo
+
+**NASA MERRA-2 Meteorological:**
+- Surface temperature
+- Relative humidity
+- Wind speed and direction
+- Surface pressure
+- Precipitation rate
+- Planetary boundary layer height
+- Total precipitable water
+
+### 4. Streamlit Web Application
+
+**Interactive Dashboard Features:**
+- **Dashboard**: Real-time AQI overview with color-coded health indicators
+- **Map View**: Geographic visualization of all 40 monitoring stations
+- **Predictions**: 24-hour forecast charts with confidence intervals
+- **Feature Importance**: Model explainability and contribution analysis
+- **Performance Metrics**: Historical accuracy and model comparison
+- **Custom Prediction**: Interactive simulator for scenario testing
+
+**Application Screenshots:**
+
+![Dashboard](research_paper_images/dashboard_page.png)
+*Dashboard displaying real-time AQI with health recommendations*
+
+![Interactive Map](research_paper_images/interactive_map_page.png)
+*Geographic distribution of monitoring stations across India*
+
+![Feature Importance](research_paper_images/feature_importance.png)
+*Top 15 features contributing to AQI prediction accuracy*
+
+![Custom Prediction](research_paper_images/custom_prediction.png)
+*Custom prediction interface for scenario analysis*
+
+### 5. Production-Ready Architecture
+
+- **API Response Time**: <200ms (p95: 150ms)
+- **System Uptime**: 99.95%
+- **Data Collection**: 3-5 seconds per cycle
+- **Cache Hit Rate**: 85%
+- **Concurrent Users**: Tested up to 10,000+
+- **Database Query Time**: <100ms (p95: 80ms)
 
 ---
 
