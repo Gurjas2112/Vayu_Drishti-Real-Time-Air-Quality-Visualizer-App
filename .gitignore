@@ -1,6 +1,10 @@
 
 # Virtual Environment
+venv/
 ml_model/venv/
+env/
+ENV/
+.venv/
 
 # Python Cache
 ml_model/__pycache__/
