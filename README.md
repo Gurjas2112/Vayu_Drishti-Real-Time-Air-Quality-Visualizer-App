@@ -875,4 +875,5 @@ If you find Vayu Drishti helpful, please consider giving it a ⭐ on GitHub!
 
 © 2025 Vayu Drishti Development Team. All Rights Reserved.
 
+
 </div>
